@@ -37,7 +37,6 @@ const PRICING_CONFIG = {
       annual: 2500000, // por año
       // Características de ejemplo. Starter = básico.
       features: [
-        "Diagnóstico inicial de tu operación",
         "Página web de una sección",
         "Bot de WhatsApp con respuestas frecuentes",
         "Una automatización sencilla con n8n",
@@ -56,18 +55,11 @@ const PRICING_CONFIG = {
       annual: 3500000,
       // Características de ejemplo. Pro = intermedio.
       features: [
-        "Diagnóstico completo del flujo de trabajo",
         "Sitio web de varias secciones, a medida",
-        "Bot de WhatsApp para pedidos, citas o cotizaciones",
-        "Hasta 4 automatizaciones con n8n",
-        "Conexión con hojas de cálculo o un CRM básico",
+        "Chatbot de WhatsApp para gestionar pedidos, cotizaciones y/o agendar citas (conectado a base de datos de Google Sheets)",
+        "Hasta 3 automatizaciones (dos sencillas y una avanzada)",
         "Reporte mensual de lo que está funcionando",
         "Soporte prioritario por WhatsApp",
-        "Anuncios en Meta Ads (Facebook e Instagram)",
-        "Reportes en dashboards interactivos",
-        "Hasta 3 automatizaciones",
-        "Chatbot de WhatsApp para agendar citas y gestionar pedidos",
-        "Chatbot vinculado a base de datos de clientes",
       ],
       // Fila extra, distinta del checkmark. Solo Pro y Business.
       bonus: "Bonus Next incluido",
@@ -82,22 +74,53 @@ const PRICING_CONFIG = {
       annual: 5000000,
       // Características de ejemplo. Business = completo.
       features: [
-        "Diagnóstico y mapa de procesos",
-        "Sitio web que tu equipo puede actualizar",
-        "Bot de WhatsApp con IA y paso a una persona",
-        "Automatizaciones con n8n según el mapa de procesos",
-        "IA aplicada a una tarea concreta del negocio",
-        "Integraciones con las herramientas que ya usas",
-        "Acompañamiento mensual y soporte dedicado",
-        "Anuncios en Meta Ads (Facebook e Instagram)",
-        "Reportes en dashboards interactivos",
-        "Hasta 5 automatizaciones",
-        "Chatbot de WhatsApp avanzado con atención personalizada",
-        "Envío de imágenes y contenido multimedia por chatbot",
-        "Notificaciones automáticas al administrador",
+        "Diseño de mapa de procesos",
+        "Sitio web sofisticado de varias secciones",
+        "Hasta 5 automatizaciones (tres sencillas y dos avanzadas)",
+        "Chatbot de WhatsApp avanzado con envío de imágenes y con acceso a panel de administrador",
         "Acceso ágil a los datos y base de clientes",
       ],
       bonus: "Bonus Next + Estrategia Innovate incluidos",
+    },
+  ],
+  // Complementos opcionales. No están incluidos en el plan: se suman al precio base.
+  // Montos en pesos, enteros. pending conserva el mismo texto en mensual y anual.
+  addonsIntro: "Complementos opcionales que se suman al plan base.",
+  addonGroups: [
+    {
+      id: "starter",
+      label: "Starter",
+      items: [
+        {
+          name: "Meta Ads (anuncios en Facebook e Instagram)",
+          monthly: 150000,
+          annual: 1500000,
+        },
+      ],
+    },
+    {
+      id: "pro-business",
+      label: "Pro y Business",
+      items: [
+        {
+          name: "Meta Ads (anuncios en Facebook e Instagram)",
+          monthly: 150000,
+          annual: 1500000,
+        },
+        {
+          name: "Reporte en dashboard interactivo",
+          pending: "Próximamente", // Precio pendiente: todavía no hay monto.
+        },
+        {
+          name: "CRM",
+          pending: "Próximamente", // Precio pendiente: todavía no hay monto.
+        },
+        {
+          name: "Baserow",
+          monthly: 45000,
+          annual: 450000,
+        },
+      ],
     },
   ],
 };
@@ -238,6 +261,65 @@ function renderPlans() {
   });
 
   grid.addEventListener("click", onChoosePlan);
+  renderAddons();
+}
+
+function renderAddons() {
+  const root = document.getElementById("addons");
+  if (!root) return;
+  root.replaceChildren();
+
+  const head = document.createElement("div");
+  head.className = "addons__head";
+  const title = document.createElement("h3");
+  title.id = "addons-title";
+  title.textContent = "Adicionales";
+  const intro = document.createElement("p");
+  intro.textContent = PRICING_CONFIG.addonsIntro;
+  head.append(title, intro);
+  root.appendChild(head);
+
+  const grid = document.createElement("div");
+  grid.className = "addons__grid";
+
+  PRICING_CONFIG.addonGroups.forEach((group) => {
+    const card = document.createElement("article");
+    card.className = "addons__card";
+    const label = document.createElement("h4");
+    label.className = "addons__plan";
+    label.textContent = group.label;
+    const list = document.createElement("ul");
+    list.className = "addons__list";
+
+    group.items.forEach((item) => {
+      const row = document.createElement("li");
+      row.className = "addon";
+      const name = document.createElement("span");
+      name.className = "addon__name";
+      name.textContent = item.name;
+      const price = document.createElement("span");
+      price.className = "addon__price";
+      const amount = document.createElement("span");
+      amount.dataset.addonAmount = "";
+      if (item.pending) {
+        amount.dataset.addonPending = item.pending;
+      } else {
+        amount.dataset.addonMonthly = String(item.monthly);
+        amount.dataset.addonAnnual = String(item.annual);
+      }
+      const note = document.createElement("span");
+      note.className = "addon__note";
+      note.dataset.addonNote = "";
+      price.append(amount, note);
+      row.append(name, price);
+      list.appendChild(row);
+    });
+
+    card.append(label, list);
+    grid.appendChild(card);
+  });
+
+  root.appendChild(grid);
 }
 
 function applyPrices() {
@@ -249,6 +331,22 @@ function applyPrices() {
     card.querySelector("[data-period]").textContent = annual ? "/año" : "/mes";
     const note = card.querySelector("[data-note]");
     note.textContent = annual ? PRICING_CONFIG.annualSavingsLabel : PRICING_CONFIG.monthlyNote;
+    note.classList.toggle("is-highlight", annual);
+  });
+
+  document.querySelectorAll("[data-addon-amount]").forEach((amount) => {
+    const note = amount.parentElement.querySelector("[data-addon-note]");
+    if (amount.dataset.addonPending) {
+      amount.textContent = amount.dataset.addonPending;
+      amount.classList.add("is-pending");
+      note.textContent = "";
+      note.classList.remove("is-highlight");
+      return;
+    }
+    const value = annual ? amount.dataset.addonAnnual : amount.dataset.addonMonthly;
+    amount.textContent = `${formatCOP(value)}${annual ? "/año" : "/mes"}`;
+    amount.classList.remove("is-pending");
+    note.textContent = annual ? PRICING_CONFIG.annualSavingsLabel : "";
     note.classList.toggle("is-highlight", annual);
   });
 }
