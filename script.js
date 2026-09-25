@@ -65,6 +65,9 @@ const PRICING_CONFIG = {
         "Soporte prioritario por WhatsApp",
         "Anuncios en Meta Ads (Facebook e Instagram)",
         "Reportes en dashboards interactivos",
+        "Hasta 3 automatizaciones",
+        "Chatbot de WhatsApp para agendar citas y gestionar pedidos",
+        "Chatbot vinculado a base de datos de clientes",
       ],
       // Fila extra, distinta del checkmark. Solo Pro y Business.
       bonus: "Bonus Next incluido",
@@ -88,6 +91,11 @@ const PRICING_CONFIG = {
         "Acompañamiento mensual y soporte dedicado",
         "Anuncios en Meta Ads (Facebook e Instagram)",
         "Reportes en dashboards interactivos",
+        "Hasta 5 automatizaciones",
+        "Chatbot de WhatsApp avanzado con atención personalizada",
+        "Envío de imágenes y contenido multimedia por chatbot",
+        "Notificaciones automáticas al administrador",
+        "Acceso ágil a los datos y base de clientes",
       ],
       bonus: "Bonus Next + Estrategia Innovate incluidos",
     },
@@ -196,7 +204,7 @@ function renderPlans() {
     card.appendChild(setup);
 
     const list = document.createElement("ul");
-    list.className = "plan__features";
+    list.className = plan.id === "starter" ? "plan__features" : "plan__features plan__features--compact";
     plan.features.forEach((feature) => {
       const item = document.createElement("li");
       item.innerHTML = CHECK_ICON;
