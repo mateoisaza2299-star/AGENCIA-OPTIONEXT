@@ -29,12 +29,12 @@ const PRICING_CONFIG = {
   plans: [
     {
       id: "starter",
-      name: "Starter",
+      name: "Startex",
       recommended: false,
       cta: "Elegir plan",
-      setup: 500000, // pago único
-      monthly: 250000, // por mes
-      annual: 2500000, // por año
+      setup: 499900, // pago único
+      monthly: 249900, // por mes
+      annual: 2499900, // por año
       // Características de ejemplo. Starter = básico.
       features: [
         "Página web de una sección",
@@ -46,13 +46,13 @@ const PRICING_CONFIG = {
     },
     {
       id: "pro",
-      name: "Pro",
+      name: "Pro Option",
       recommended: true, // borde, badge "Recomendado" y botón con brillo
       badge: "Recomendado",
       cta: "Empezar",
-      setup: 700000,
-      monthly: 350000,
-      annual: 3500000,
+      setup: 699900,
+      monthly: 349900,
+      annual: 3499900,
       // Características de ejemplo. Pro = intermedio.
       features: [
         "Sitio web de varias secciones, a medida",
@@ -66,12 +66,12 @@ const PRICING_CONFIG = {
     },
     {
       id: "business",
-      name: "Business",
+      name: "Businext",
       recommended: false,
       cta: "Elegir plan",
-      setup: 1000000,
-      monthly: 500000,
-      annual: 5000000,
+      setup: 999900,
+      monthly: 499900,
+      annual: 4999900,
       // Características de ejemplo. Business = completo.
       features: [
         "Diseño de mapa de procesos",
@@ -89,23 +89,23 @@ const PRICING_CONFIG = {
   addonGroups: [
     {
       id: "starter",
-      label: "Starter",
+      label: "Startex",
       items: [
         {
           name: "Meta Ads (anuncios en Facebook e Instagram)",
-          monthly: 150000,
-          annual: 1500000,
+          monthly: 149900,
+          annual: 1499900,
         },
       ],
     },
     {
       id: "pro-business",
-      label: "Pro y Business",
+      label: "Pro Option y Businext",
       items: [
         {
           name: "Meta Ads (anuncios en Facebook e Instagram)",
-          monthly: 150000,
-          annual: 1500000,
+          monthly: 149900,
+          annual: 1499900,
         },
         {
           name: "Reporte en dashboard interactivo",
@@ -117,8 +117,8 @@ const PRICING_CONFIG = {
         },
         {
           name: "Baserow",
-          monthly: 45000,
-          annual: 450000,
+          monthly: 44900,
+          annual: 449900,
         },
       ],
     },
