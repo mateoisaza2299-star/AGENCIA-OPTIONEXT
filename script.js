@@ -63,7 +63,11 @@ const PRICING_CONFIG = {
         "Conexión con hojas de cálculo o un CRM básico",
         "Reporte mensual de lo que está funcionando",
         "Soporte prioritario por WhatsApp",
+        "Anuncios en Meta Ads (Facebook e Instagram)",
+        "Reportes en dashboards interactivos",
       ],
+      // Fila extra, distinta del checkmark. Solo Pro y Business.
+      bonus: "Bonus Next incluido",
     },
     {
       id: "business",
@@ -82,7 +86,10 @@ const PRICING_CONFIG = {
         "IA aplicada a una tarea concreta del negocio",
         "Integraciones con las herramientas que ya usas",
         "Acompañamiento mensual y soporte dedicado",
+        "Anuncios en Meta Ads (Facebook e Instagram)",
+        "Reportes en dashboards interactivos",
       ],
+      bonus: "Bonus Next + Estrategia Innovate incluidos",
     },
   ],
 };
@@ -92,6 +99,7 @@ const PRICING_CONFIG = {
    ========================================================================= */
 
 const CHECK_ICON = '<svg class="check" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="10"></circle><path d="M5.8 10.2 8.5 12.9 14.2 7.2"></path></svg>';
+const BONUS_ICON = '<svg class="bonus-icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 1.6 12.2 7.1l5.8.4-4.5 3.7 1.5 5.6L10 13.7 4.9 16.8l1.5-5.6L2 7.5l5.8-.4L10 1.6Z"></path></svg>';
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 let billingPeriod = "monthly";
@@ -197,6 +205,15 @@ function renderPlans() {
       item.appendChild(label);
       list.appendChild(item);
     });
+    if (plan.bonus) {
+      const bonus = document.createElement("li");
+      bonus.className = "plan__bonus";
+      bonus.innerHTML = BONUS_ICON;
+      const label = document.createElement("span");
+      label.textContent = plan.bonus;
+      bonus.appendChild(label);
+      list.appendChild(bonus);
+    }
     card.appendChild(list);
 
     const button = document.createElement("button");

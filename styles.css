@@ -866,6 +866,30 @@ section[id] {
   stroke-linejoin: round;
 }
 
+.plan__features li.plan__bonus {
+  margin-top: 0.35rem;
+  padding: 0.7rem 0.75rem;
+  border-radius: 14px;
+  align-items: center;
+  background: linear-gradient(100deg, #4b2e9e 0%, #6c3ce0 72%, #7a4cf0 100%);
+  color: #fff;
+  font-weight: 800;
+  box-shadow:
+    0 0 0 3px rgba(245, 196, 81, 0.45),
+    0 10px 22px rgba(108, 60, 224, 0.35);
+}
+
+.bonus-icon {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  color: #f5c451;
+}
+
+.bonus-icon path {
+  fill: currentColor;
+}
+
 .plan .btn {
   margin-top: auto;
 }
