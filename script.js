@@ -443,7 +443,11 @@ function initNav() {
 
   const links = [...document.querySelectorAll(".nav__links a")];
   const sections = links
-    .map((link) => document.querySelector(link.getAttribute("href")))
+    .map((link) => {
+      const href = link.getAttribute("href") || "";
+      if (!href.startsWith("#")) return null;
+      return document.querySelector(href);
+    })
     .filter(Boolean);
 
   if (!("IntersectionObserver" in window)) return;

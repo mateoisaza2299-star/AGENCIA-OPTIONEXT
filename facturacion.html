@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Facturación | OPTIONEXT</title>
+  <meta name="description" content="Panel de facturación de ejemplo de OPTIONEXT. Vista cliente y vista admin, sin servidor ni pasarela de pago.">
+  <meta name="theme-color" content="#4B2E9E">
+  <link rel="icon" href="assets/optionext-logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="billing.css">
+</head>
+<body class="bill-page">
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+
+  <header class="nav is-scrolled" id="nav">
+    <div class="nav__bar">
+      <a class="brand" href="index.html">
+        <img class="brand__mark" src="assets/optionext-logo.png" width="48" height="48" alt="">
+        <span class="brand__name">OPTIONEXT</span>
+      </a>
+
+      <button class="nav__toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-panel">
+        <span class="visually-hidden" id="menu-label">Abrir menú</span>
+        <svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+
+      <div class="nav__panel" id="nav-panel">
+        <nav aria-label="Principal">
+          <ul class="nav__links">
+            <li><a href="index.html#nosotros">Nosotros</a></li>
+            <li><a href="index.html#servicios">Servicios</a></li>
+            <li><a href="index.html#precios">Precios</a></li>
+            <li><a href="facturacion.html" aria-current="page">Facturación</a></li>
+            <li><a href="index.html#proceso">Proceso</a></li>
+            <li><a href="index.html#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+        <a class="btn btn--primary btn--sm" href="index.html#contacto">Agenda un diagnóstico</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido" class="bill">
+    <div class="container bill-wrap">
+      <header class="bill-intro">
+        <p class="eyebrow">Cuenta</p>
+        <h1>Facturación</h1>
+        <p class="lede">Panel de ejemplo para el cliente y para el equipo. Los cambios se quedan en este navegador: no hay servidor ni pasarela de pago.</p>
+      </header>
+
+      <div class="view-tabs" role="tablist" aria-label="Tipo de vista">
+        <button class="view-tabs__btn" id="tab-client" type="button" role="tab" aria-controls="view-client" aria-selected="true">Vista Cliente</button>
+        <button class="view-tabs__btn" id="tab-admin" type="button" role="tab" aria-controls="view-admin" aria-selected="false" tabindex="-1">Vista Admin</button>
+      </div>
+
+      <div id="view-client" role="tabpanel" aria-labelledby="tab-client"></div>
+      <div id="view-admin" role="tabpanel" aria-labelledby="tab-admin" hidden></div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a class="brand" href="index.html">
+          <img class="brand__mark" src="assets/optionext-logo.png" width="56" height="56" alt="">
+          <span class="brand__name">OPTIONEXT</span>
+        </a>
+        <p>Diagnóstico y soluciones digitales para MIPYMES y negocios locales.</p>
+      </div>
+      <div>
+        <h2 class="footer__title">Mapa</h2>
+        <ul class="footer__links">
+          <li><a href="index.html#nosotros">Sobre nosotros</a></li>
+          <li><a href="index.html#servicios">Servicios</a></li>
+          <li><a href="index.html#precios">Precios</a></li>
+          <li><a href="facturacion.html" aria-current="page">Facturación</a></li>
+          <li><a href="index.html#proceso">Cómo trabajamos</a></li>
+          <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer__title">Contacto</h2>
+        <p class="footer__location">Sabana de Occidente, Cundinamarca</p>
+        <p><a href="index.html#contacto">Agenda un diagnóstico</a></p>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <p>© 2026 OPTIONEXT · Sabana de Occidente, Cundinamarca</p>
+    </div>
+  </footer>
+
+  <div class="modal" id="modal" hidden>
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal__close" type="button" data-close aria-label="Cerrar">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+      <h2 id="modal-title" tabindex="-1"></h2>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+  <p class="visually-hidden" id="bill-live" aria-live="polite"></p>
+
+  <script src="billing.js"></script>
+</body>
+</html>
