@@ -5,7 +5,9 @@ Landing de una sola página para OPTIONEXT, equipo de soluciones digitales de la
 La página es estática: abre `index.html` en el navegador. No hay servidor detrás del sitio.
 
 - `index.html` — estructura de la página
-- `styles.css` — estilos
+- `facturacion.html` — panel de facturación de ejemplo (sin servidor)
+- `styles.css` — estilos del sitio
+- `billing.css` / `billing.js` — panel de facturación
 - `script.js` — precios, formulario y WhatsApp
 - `assets/optionext-logo.png` — logo
 
