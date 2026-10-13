@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Administración | OPTIONEXT</title>
+  <meta name="description" content="Clientes y facturas de OPTIONEXT.">
+  <meta name="theme-color" content="#4B2E9E">
+  <link rel="icon" href="assets/optionext-logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="auth.css">
+</head>
+<body class="auth-page">
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <header class="nav is-scrolled" id="nav">
+    <div class="nav__bar">
+      <a class="brand" href="index.html">
+        <img class="brand__mark" src="assets/optionext-logo.png" width="48" height="48" alt="">
+        <span class="brand__name">OPTIONEXT</span>
+      </a>
+      <button class="nav__toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-panel">
+        <span class="visually-hidden" id="menu-label">Abrir menú</span>
+        <svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+      <div class="nav__panel" id="nav-panel">
+        <nav aria-label="Principal">
+          <ul class="nav__links">
+            <li><a href="index.html#nosotros">Nosotros</a></li>
+            <li><a href="index.html#servicios">Servicios</a></li>
+            <li><a href="index.html#precios">Precios</a></li>
+            <li><a href="facturacion.html">Facturación</a></li>
+            <li><a href="index.html#proceso">Proceso</a></li>
+            <li><a href="index.html#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+        <a class="btn btn--primary btn--sm" href="index.html#contacto">Agenda un diagnóstico</a>
+        <div class="nav-session" id="nav-session">
+          <a class="btn btn--ghost btn--sm" href="login.html">Iniciar sesión</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <p class="account-loading" id="account-loading">Cargando el panel…</p>
+  <main id="contenido" class="account" hidden>
+    <div class="container account-wrap">
+      <header class="account-intro">
+        <div>
+          <p class="eyebrow">Administración</p>
+          <h1>Clientes y facturas</h1>
+        </div>
+        <button class="btn btn--ghost btn--sm" id="logout" type="button">Cerrar sesión</button>
+      </header>
+      <div class="panel-messages">
+        <p class="form-error" id="panel-error" role="alert" hidden></p>
+        <p class="form-note" id="panel-note" role="status" hidden></p>
+      </div>
+      <section class="card" aria-labelledby="clients-title">
+        <div class="section-head">
+          <h2 id="clients-title">Clientes</h2>
+          <div class="field">
+            <label for="client-search">Buscar por nombre o correo</label>
+            <input class="search" id="client-search" type="search" placeholder="Nombre o correo">
+          </div>
+        </div>
+        <div id="client-list"></div>
+      </section>
+      <section class="card" aria-labelledby="invoices-title">
+        <h2 id="invoices-title">Facturas</h2>
+        <form class="invoice-form" id="invoice-form">
+          <div class="field">
+            <label for="invoice-client">Cliente</label>
+            <select id="invoice-client" name="cliente"></select>
+          </div>
+          <div class="field">
+            <label for="invoice-concept">Concepto</label>
+            <input id="invoice-concept" name="concepto" type="text" autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="invoice-amount">Valor</label>
+            <input id="invoice-amount" name="monto" type="number" min="1" step="1" inputmode="numeric">
+          </div>
+          <div class="field">
+            <label for="invoice-status">Estado</label>
+            <select id="invoice-status" name="estado">
+              <option value="pendiente">Pendiente</option>
+              <option value="pagada">Pagada</option>
+              <option value="vencida">Vencida</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="invoice-date">Fecha</label>
+            <input id="invoice-date" name="fecha" type="date">
+          </div>
+          <button class="btn btn--primary" id="invoice-submit" type="submit">Crear factura</button>
+        </form>
+        <div id="invoice-list"></div>
+      </section>
+    </div>
+  </main>
+  <script type="module" src="js/admin.js"></script>
+</body>
+</html>

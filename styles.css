@@ -312,6 +312,13 @@ section[id] {
   gap: 1.5rem;
 }
 
+.nav-session {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
 .nav__links {
   display: flex;
   gap: 1.25rem;
@@ -1538,6 +1545,11 @@ section[id] {
 
   .nav__panel .btn {
     width: 100%;
+  }
+
+  .nav-session {
+    flex-direction: column;
+    align-items: stretch;
   }
 }
 
