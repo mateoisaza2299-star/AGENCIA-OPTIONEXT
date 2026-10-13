@@ -6,8 +6,12 @@ La página es estática: abre `index.html` en el navegador. No hay servidor detr
 
 - `index.html` — estructura de la página
 - `facturacion.html` — panel de facturación de ejemplo (sin servidor)
+- `login.html` / `registro.html` — acceso con Supabase
+- `cliente.html` / `admin.html` — paneles según el rol guardado en `profiles`
 - `styles.css` — estilos del sitio
+- `auth.css` — estilos de acceso y paneles
 - `billing.css` / `billing.js` — panel de facturación
+- `js/supabase.js` — cliente de Supabase
 - `script.js` — precios, formulario y WhatsApp
 - `assets/optionext-logo.png` — logo
 
