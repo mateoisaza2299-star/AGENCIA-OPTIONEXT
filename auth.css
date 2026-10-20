@@ -50,8 +50,7 @@
 }
 
 .auth-card .btn[disabled],
-.account .btn[disabled],
-.nav-session .btn[disabled] {
+.account .btn[disabled] {
   opacity: 0.7;
   cursor: progress;
   transform: none;

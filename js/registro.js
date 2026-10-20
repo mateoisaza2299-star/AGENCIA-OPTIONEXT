@@ -1,7 +1,6 @@
 import { supabase } from "./supabase.js";
 import { authMessage, panelPath, showMessage, validEmail } from "./session.js";
 import "./menu.js";
-import "./nav-session.js";
 
 const form = document.getElementById("register-form");
 const button = document.getElementById("register-submit");

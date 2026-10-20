@@ -1,7 +1,6 @@
 import { supabase } from "./supabase.js";
 import { formatCOP, formatDate, requireRole, showMessage, statusLabel } from "./session.js";
 import "./menu.js";
-import "./nav-session.js";
 
 const main = document.getElementById("contenido");
 const loading = document.getElementById("account-loading");
