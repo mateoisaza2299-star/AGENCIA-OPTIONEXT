@@ -13,6 +13,7 @@ import {
   nivelesPrincipales,
   webIndividual,
 } from "./pricing-data.js";
+import { planMessage, whatsappHref } from "./config.js";
 
 const CHECK = `<svg class="check" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="10"></circle><path d="M5.8 10.2 8.5 12.9 14.2 7.2"></path></svg>`;
 
@@ -25,14 +26,8 @@ function el(tag, className, text) {
   return node;
 }
 
-function waBase() {
-  const link = document.querySelector("[data-whatsapp]");
-  const href = link ? link.href : "https://wa.me/573000000000";
-  return href.split("?")[0];
-}
-
 function wa(text) {
-  return `${waBase()}?text=${encodeURIComponent(text)}`;
+  return whatsappHref(text);
 }
 
 function quoteHref(service) {
@@ -253,7 +248,9 @@ function applyPeriod() {
     }
     if (cta) {
       cta.textContent = planButtonLabel(plan);
-      cta.href = wa(`Hola OPTIONEXT, quiero empezar con el nivel ${plan.name}.`);
+      cta.href = whatsappHref(planMessage(plan.name));
+      cta.target = "_blank";
+      cta.rel = "noopener";
     }
   });
   webIndividual.forEach((service) => {

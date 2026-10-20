@@ -1183,6 +1183,10 @@ section[id] {
   padding-left: 1.4rem;
 }
 
+.contact__points a {
+  color: inherit;
+}
+
 .contact__points li::before {
   content: "";
   position: absolute;

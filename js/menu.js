@@ -1,3 +1,7 @@
+import { applyContact } from "./config.js";
+
+applyContact();
+
 const toggle = document.getElementById("menu-toggle");
 const panel = document.getElementById("nav-panel");
 const label = document.getElementById("menu-label");

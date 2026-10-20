@@ -397,6 +397,10 @@
   color: #d5d8ea;
 }
 
+.price-final__note a {
+  color: inherit;
+}
+
 #diagnostico,
 #niveles,
 #servicios-individuales,

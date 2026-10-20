@@ -1,16 +1,5 @@
-/* ============================================================================
-   CONFIGURACIÓN — editar aquí
-   El número de WhatsApp, el correo y las redes viven en este bloque.
-   Los precios están solo en js/pricing-data.js.
-   ========================================================================= */
+import { applyContact, whatsappHref } from "./js/config.js";
 
-// Reemplazar con el número real: código de país + número, sin + ni espacios.
-const WHATSAPP_NUMBER = "573000000000";
-
-// Reemplazar con el correo real de OPTIONEXT.
-const CONTACT_EMAIL = "hola@optionext.com";
-
-// Reemplazar "#" por los perfiles reales. Si sigue en "#", el enlace no abre otra pestaña.
 const SOCIAL_LINKS = [
   { id: "instagram", href: "#" },
   { id: "facebook", href: "#" },
@@ -20,34 +9,12 @@ const SOCIAL_LINKS = [
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 let selectedPlanName = "";
 
-function formatPhone(number) {
-  if (/^57\d{10}$/.test(number)) {
-    return `+57 ${number.slice(2, 5)} ${number.slice(5, 8)} ${number.slice(8)}`;
-  }
-  return `+${number}`;
-}
-
 function whatsappUrl(text) {
-  const base = `https://wa.me/${WHATSAPP_NUMBER}`;
-  if (!text) return base;
-  return `${base}?text=${encodeURIComponent(text)}`;
+  return whatsappHref(text);
 }
 
 function initWhatsApp() {
-  document.querySelectorAll("[data-whatsapp]").forEach((node) => {
-    node.setAttribute("href", whatsappUrl(""));
-  });
-
-  const display = formatPhone(WHATSAPP_NUMBER);
-  document.querySelectorAll("[data-whatsapp-display]").forEach((node) => {
-    node.textContent = display;
-  });
-
-  const email = document.getElementById("footer-email");
-  if (email) {
-    email.textContent = CONTACT_EMAIL;
-    email.href = `mailto:${CONTACT_EMAIL}`;
-  }
+  applyContact();
 
   document.querySelectorAll("[data-social]").forEach((link) => {
     const item = SOCIAL_LINKS.find((entry) => entry.id === link.dataset.social);
