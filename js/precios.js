@@ -73,13 +73,13 @@ function renderDiagnosisPrice() {
 }
 
 function planButtonLabel(plan) {
-  if (period === "annual" && plan.setupPrice > 0) {
-    return `Empezar: ${formatPrice(plan.setupPrice)} setup + ${formatPrice(plan.annualPrice)}/año`;
-  }
+  const annual = period === "annual";
+  const price = formatPrice(annual ? plan.annualPrice : plan.monthlyPrice);
+  const unit = annual ? "año" : "mes";
   if (plan.setupPrice > 0) {
-    return `Empezar: ${formatPrice(plan.setupPrice)} setup + ${formatPrice(plan.monthlyPrice)}/mes`;
+    return `Empezar: ${formatPrice(plan.setupPrice)} setup + ${price}/${unit}`;
   }
-  return `Empezar por ${formatPrice(plan.monthlyPrice)}/mes`;
+  return `Empezar por ${price}/${unit}`;
 }
 
 function renderPlans() {
@@ -112,11 +112,6 @@ function renderPlans() {
     cta.target = "_blank";
     cta.rel = "noopener noreferrer";
     card.append(cta);
-
-    card.append(el("p", "include-label", ""));
-    const includeLabel = card.querySelector(".include-label");
-    includeLabel.dataset.includeLabel = plan.id;
-    card.append(checks(plan.monthlyIncludes));
 
     const featureList = checks(plan.features.slice(0, 6));
     const extra = moreDetails(plan.features, 6, "Ver más");
@@ -242,7 +237,6 @@ function applyPeriod() {
     const note = document.querySelector(`[data-main-note="${plan.id}"]`);
     const setup = document.querySelector(`[data-setup="${plan.id}"]`);
     const cta = document.querySelector(`[data-plan-cta="${plan.id}"]`);
-    const includeLabel = document.querySelector(`[data-include-label="${plan.id}"]`);
     const shown = annual ? Math.round(plan.annualPrice / 12) : plan.monthlyPrice;
     if (amount) amount.textContent = formatPrice(shown);
     if (note) {
@@ -260,9 +254,6 @@ function applyPeriod() {
     if (cta) {
       cta.textContent = planButtonLabel(plan);
       cta.href = wa(`Hola OPTIONEXT, quiero empezar con el nivel ${plan.name}.`);
-    }
-    if (includeLabel) {
-      includeLabel.textContent = annual ? "Incluido en tu plan anual:" : "Incluido en tu mensualidad:";
     }
   });
   webIndividual.forEach((service) => {
