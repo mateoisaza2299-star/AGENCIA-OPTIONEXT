@@ -33,7 +33,7 @@
           <ul class="nav__links">
             <li><a href="#nosotros">Nosotros</a></li>
             <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#precios">Precios</a></li>
+            <li><a href="precios.html">Precios</a></li>
             <li><a href="facturacion.html">Facturación</a></li>
             <li><a href="#proceso">Proceso</a></li>
             <li><a href="#contacto">Contacto</a></li>
@@ -56,7 +56,7 @@
           <p class="lede">Acompañamos a MIPYMES y negocios locales. Entendemos cómo trabaja tu operación y recién ahí implementamos el sitio, el bot de WhatsApp, la automatización o la inteligencia artificial que hace falta.</p>
           <div class="hero__actions">
             <a class="btn btn--primary btn--glow" href="#contacto">Agenda un diagnóstico</a>
-            <a class="btn btn--ghost" href="#precios">Ver precios</a>
+            <a class="btn btn--ghost" href="precios.html">Ver precios</a>
           </div>
           <p class="hero__note">15 días de garantía de devolución si no quedas conforme.</p>
         </div>
@@ -184,38 +184,15 @@
       <div class="container">
         <div class="section-head section-head--center reveal">
           <p class="eyebrow eyebrow--light">Precios</p>
-          <h2 id="precios-title">Tres planes. Precio cerrado.</h2>
-          <p class="lede">El diagnóstico dice qué hay que construir. El plan cubre la activación y el acompañamiento, con un monto que ya puedes leer.</p>
+          <h2 id="precios-title">Tres niveles. Uno para tu etapa.</h2>
+          <p class="lede">Arranque, Crecimiento y Ecosistema salen de la misma lista que la página de precios. El diagnóstico, el anual y los servicios sueltos están allá.</p>
         </div>
-
-        <div class="billing-wrap reveal">
-          <div class="billing" id="billing-toggle" role="radiogroup" aria-label="Periodo de facturación">
-            <button class="billing__btn" id="billing-monthly" type="button" role="radio" data-period="monthly" aria-checked="true" tabindex="0">Mensual</button>
-            <button class="billing__btn" id="billing-annual" type="button" role="radio" data-period="annual" aria-checked="false" tabindex="-1">
-              Anual
-              <span class="billing__save">2 meses gratis</span>
-            </button>
-          </div>
-          <p class="visually-hidden" id="billing-live" aria-live="polite"></p>
-        </div>
-
-        <!--
-          Las tarjetas salen de PRICING_CONFIG en script.js.
-          Para cambiar nombres, setup, mensual, anual o características, edita ese objeto.
-        -->
-        <div class="pricing__grid" id="pricing-grid">
+        <div class="pricing__grid" id="home-plans">
           <noscript>
             <p class="pricing__noscript">Activa JavaScript para ver los planes.</p>
           </noscript>
         </div>
-
-        <!-- Adicionales: se arman desde addonGroups en PRICING_CONFIG (script.js). -->
-        <div class="addons" id="addons" aria-labelledby="addons-title"></div>
-
-        <p class="guarantee">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2 19 6v5.2c0 4.3-2.9 7.4-7 8.8-4.1-1.4-7-4.5-7-8.8V6l7-2.8Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8.6 12.1 10.8 14.3 15.5 9.6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          15 días de garantía de devolución total del dinero si no quedas conforme
-        </p>
+        <p class="pricing__more"><a class="btn btn--light" href="precios.html">Ver planes y precios</a></p>
       </div>
     </section>
 
@@ -379,7 +356,7 @@
         <ul class="footer__links">
           <li><a href="#nosotros">Sobre nosotros</a></li>
           <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#precios">Precios</a></li>
+          <li><a href="precios.html">Precios</a></li>
           <li><a href="facturacion.html">Facturación</a></li>
           <li><a href="#proceso">Cómo trabajamos</a></li>
           <li><a href="#testimonios">Testimonios</a></li>
@@ -421,6 +398,7 @@
   </a>
 
   <script src="script.js"></script>
+  <script type="module" src="js/home-teaser.js"></script>
   <script type="module" src="js/nav-session.js"></script>
 </body>
 </html>

@@ -1,11 +1,7 @@
 /* ============================================================================
    CONFIGURACIÓN — editar aquí
-   Mateo: precios, textos de cada plan y el número de WhatsApp viven solo
-   en este bloque. No hace falta buscarlos en el HTML.
-
-   Montos en pesos colombianos, números enteros, sin puntos y sin signo $.
-   El anual ya deja 2 meses sin cobro (se pagan 10 de 12).
-   La etiqueta annualSavingsLabel es la línea que se destaca en la vista anual.
+   El número de WhatsApp, el correo y las redes viven en este bloque.
+   Los precios están solo en js/pricing-data.js.
    ========================================================================= */
 
 // Reemplazar con el número real: código de país + número, sin + ni espacios.
@@ -21,125 +17,8 @@ const SOCIAL_LINKS = [
   { id: "linkedin", href: "#" },
 ];
 
-const PRICING_CONFIG = {
-  // Línea que aparece destacada cuando el interruptor está en Anual.
-  annualSavingsLabel: "equivale a 2 meses gratis",
-  // Línea de la tarjeta cuando el interruptor está en Mensual.
-  monthlyNote: "Pago mes a mes",
-  plans: [
-    {
-      id: "starter",
-      name: "Startex",
-      recommended: false,
-      cta: "Elegir plan",
-      setup: 499900, // pago único
-      monthly: 249900, // por mes
-      annual: 2499900, // por año
-      // Características de ejemplo. Starter = básico.
-      features: [
-        "Página web de una sección",
-        "Bot de WhatsApp con respuestas frecuentes",
-        "Una automatización sencilla con n8n",
-        "Ajustes incluidos el primer mes",
-        "Soporte por WhatsApp en horario laboral",
-      ],
-    },
-    {
-      id: "pro",
-      name: "Pro Option",
-      recommended: true, // borde, badge "Recomendado" y botón con brillo
-      badge: "Recomendado",
-      cta: "Empezar",
-      setup: 699900,
-      monthly: 349900,
-      annual: 3499900,
-      // Características de ejemplo. Pro = intermedio.
-      features: [
-        "Sitio web de varias secciones, a medida",
-        "Chatbot de WhatsApp para gestionar pedidos, cotizaciones y/o agendar citas (conectado a base de datos de Google Sheets)",
-        "Hasta 3 automatizaciones (dos sencillas y una avanzada)",
-        "Reporte mensual de lo que está funcionando",
-        "Soporte prioritario por WhatsApp",
-      ],
-      // Fila extra, distinta del checkmark. Solo Pro y Business.
-      bonus: "Bonus Next incluido",
-    },
-    {
-      id: "business",
-      name: "Businext",
-      recommended: false,
-      cta: "Elegir plan",
-      setup: 999900,
-      monthly: 499900,
-      annual: 4999900,
-      // Características de ejemplo. Business = completo.
-      features: [
-        "Diseño de mapa de procesos",
-        "Sitio web sofisticado de varias secciones",
-        "Hasta 5 automatizaciones (tres sencillas y dos avanzadas)",
-        "Chatbot de WhatsApp avanzado con envío de imágenes y con acceso a panel de administrador",
-        "Acceso ágil a los datos y base de clientes",
-      ],
-      bonus: "Bonus Next + Estrategia Innovate incluidos",
-    },
-  ],
-  // Complementos opcionales. No están incluidos en el plan: se suman al precio base.
-  // Montos en pesos, enteros. pending conserva el mismo texto en mensual y anual.
-  addonsIntro: "Complementos opcionales que se suman al plan base.",
-  addonGroups: [
-    {
-      id: "starter",
-      label: "Startex",
-      items: [
-        {
-          name: "Meta Ads (anuncios en Facebook e Instagram)",
-          monthly: 149900,
-          annual: 1499900,
-        },
-      ],
-    },
-    {
-      id: "pro-business",
-      label: "Pro Option y Businext",
-      items: [
-        {
-          name: "Meta Ads (anuncios en Facebook e Instagram)",
-          monthly: 149900,
-          annual: 1499900,
-        },
-        {
-          name: "Reporte en dashboard interactivo",
-          pending: "Próximamente", // Precio pendiente: todavía no hay monto.
-        },
-        {
-          name: "CRM",
-          pending: "Próximamente", // Precio pendiente: todavía no hay monto.
-        },
-        {
-          name: "Baserow",
-          monthly: 44900,
-          annual: 449900,
-        },
-      ],
-    },
-  ],
-};
-
-/* ============================================================================
-   Fin de la configuración. Debajo está el comportamiento de la página.
-   ========================================================================= */
-
-const CHECK_ICON = '<svg class="check" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="10"></circle><path d="M5.8 10.2 8.5 12.9 14.2 7.2"></path></svg>';
-const BONUS_ICON = '<svg class="bonus-icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 1.6 12.2 7.1l5.8.4-4.5 3.7 1.5 5.6L10 13.7 4.9 16.8l1.5-5.6L2 7.5l5.8-.4L10 1.6Z"></path></svg>';
-
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-let billingPeriod = "monthly";
 let selectedPlanName = "";
-
-function formatCOP(amount) {
-  const withDots = String(Math.round(amount)).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  return `$${withDots} COP`;
-}
 
 function formatPhone(number) {
   if (/^57\d{10}$/.test(number)) {
@@ -179,232 +58,6 @@ function initWhatsApp() {
       link.rel = "noopener noreferrer";
     }
   });
-}
-
-function renderPlans() {
-  const grid = document.getElementById("pricing-grid");
-  grid.replaceChildren();
-
-  PRICING_CONFIG.plans.forEach((plan) => {
-    const card = document.createElement("article");
-    card.className = plan.recommended ? "plan plan--featured" : "plan";
-    card.dataset.planId = plan.id;
-
-    if (plan.badge) {
-      const badge = document.createElement("p");
-      badge.className = "plan__badge";
-      badge.textContent = plan.badge;
-      card.appendChild(badge);
-    }
-
-    const name = document.createElement("h3");
-    name.className = "plan__name";
-    name.textContent = plan.name;
-    card.appendChild(name);
-
-    const price = document.createElement("p");
-    price.className = "plan__price";
-    const amount = document.createElement("span");
-    amount.className = "plan__amount";
-    amount.dataset.amount = "";
-    const period = document.createElement("span");
-    period.className = "plan__period";
-    period.dataset.period = "";
-    price.append(amount, period);
-    card.appendChild(price);
-
-    const noteSlot = document.createElement("div");
-    noteSlot.className = "plan__note-slot";
-    const note = document.createElement("p");
-    note.className = "plan__note";
-    note.dataset.note = "";
-    noteSlot.appendChild(note);
-    card.appendChild(noteSlot);
-
-    const setup = document.createElement("p");
-    setup.className = "plan__setup";
-    setup.textContent = `Setup ${formatCOP(plan.setup)} (pago único)`;
-    card.appendChild(setup);
-
-    const list = document.createElement("ul");
-    list.className = plan.id === "starter" ? "plan__features" : "plan__features plan__features--compact";
-    plan.features.forEach((feature) => {
-      const item = document.createElement("li");
-      item.innerHTML = CHECK_ICON;
-      const label = document.createElement("span");
-      label.textContent = feature;
-      item.appendChild(label);
-      list.appendChild(item);
-    });
-    if (plan.bonus) {
-      const bonus = document.createElement("li");
-      bonus.className = "plan__bonus";
-      bonus.innerHTML = BONUS_ICON;
-      const label = document.createElement("span");
-      label.textContent = plan.bonus;
-      bonus.appendChild(label);
-      list.appendChild(bonus);
-    }
-    card.appendChild(list);
-
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = plan.recommended
-      ? "btn btn--primary btn--glow btn--block"
-      : "btn btn--primary btn--block";
-    button.textContent = plan.cta;
-    button.dataset.choosePlan = plan.name;
-    button.setAttribute("aria-label", `${plan.cta} ${plan.name}`);
-    card.appendChild(button);
-
-    grid.appendChild(card);
-  });
-
-  grid.addEventListener("click", onChoosePlan);
-  renderAddons();
-}
-
-function renderAddons() {
-  const root = document.getElementById("addons");
-  if (!root) return;
-  root.replaceChildren();
-
-  const head = document.createElement("div");
-  head.className = "addons__head";
-  const title = document.createElement("h3");
-  title.id = "addons-title";
-  title.textContent = "Adicionales";
-  const intro = document.createElement("p");
-  intro.textContent = PRICING_CONFIG.addonsIntro;
-  head.append(title, intro);
-  root.appendChild(head);
-
-  const grid = document.createElement("div");
-  grid.className = "addons__grid";
-
-  PRICING_CONFIG.addonGroups.forEach((group) => {
-    const card = document.createElement("article");
-    card.className = "addons__card";
-    const label = document.createElement("h4");
-    label.className = "addons__plan";
-    label.textContent = group.label;
-    const list = document.createElement("ul");
-    list.className = "addons__list";
-
-    group.items.forEach((item) => {
-      const row = document.createElement("li");
-      row.className = "addon";
-      const name = document.createElement("span");
-      name.className = "addon__name";
-      name.textContent = item.name;
-      const price = document.createElement("span");
-      price.className = "addon__price";
-      const amount = document.createElement("span");
-      amount.dataset.addonAmount = "";
-      if (item.pending) {
-        amount.dataset.addonPending = item.pending;
-      } else {
-        amount.dataset.addonMonthly = String(item.monthly);
-        amount.dataset.addonAnnual = String(item.annual);
-      }
-      const note = document.createElement("span");
-      note.className = "addon__note";
-      note.dataset.addonNote = "";
-      price.append(amount, note);
-      row.append(name, price);
-      list.appendChild(row);
-    });
-
-    card.append(label, list);
-    grid.appendChild(card);
-  });
-
-  root.appendChild(grid);
-}
-
-function applyPrices() {
-  const annual = billingPeriod === "annual";
-  document.querySelectorAll("[data-plan-id]").forEach((card) => {
-    const plan = PRICING_CONFIG.plans.find((item) => item.id === card.dataset.planId);
-    if (!plan) return;
-    card.querySelector("[data-amount]").textContent = formatCOP(annual ? plan.annual : plan.monthly);
-    card.querySelector("[data-period]").textContent = annual ? "/año" : "/mes";
-    const note = card.querySelector("[data-note]");
-    note.textContent = annual ? PRICING_CONFIG.annualSavingsLabel : PRICING_CONFIG.monthlyNote;
-    note.classList.toggle("is-highlight", annual);
-  });
-
-  document.querySelectorAll("[data-addon-amount]").forEach((amount) => {
-    const note = amount.parentElement.querySelector("[data-addon-note]");
-    if (amount.dataset.addonPending) {
-      amount.textContent = amount.dataset.addonPending;
-      amount.classList.add("is-pending");
-      note.textContent = "";
-      note.classList.remove("is-highlight");
-      return;
-    }
-    const value = annual ? amount.dataset.addonAnnual : amount.dataset.addonMonthly;
-    amount.textContent = `${formatCOP(value)}${annual ? "/año" : "/mes"}`;
-    amount.classList.remove("is-pending");
-    note.textContent = annual ? PRICING_CONFIG.annualSavingsLabel : "";
-    note.classList.toggle("is-highlight", annual);
-  });
-}
-
-function setBilling(period, announce) {
-  billingPeriod = period;
-  document.querySelectorAll("#billing-toggle [role='radio']").forEach((button) => {
-    const selected = button.dataset.period === period;
-    button.setAttribute("aria-checked", selected ? "true" : "false");
-    button.tabIndex = selected ? 0 : -1;
-  });
-  applyPrices();
-  if (!announce) return;
-  const live = document.getElementById("billing-live");
-  live.textContent = period === "annual"
-    ? `Precios anuales. ${PRICING_CONFIG.annualSavingsLabel}.`
-    : "Precios mensuales.";
-}
-
-function initBilling() {
-  const group = document.getElementById("billing-toggle");
-  const buttons = [...group.querySelectorAll("[role='radio']")];
-  const order = buttons.map((button) => button.dataset.period);
-
-  buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-      setBilling(button.dataset.period, true);
-    });
-  });
-
-  group.addEventListener("keydown", (event) => {
-    const keys = ["ArrowRight", "ArrowDown", "ArrowLeft", "ArrowUp", "Home", "End"];
-    if (!keys.includes(event.key)) return;
-    event.preventDefault();
-    const current = buttons.findIndex((button) => button.getAttribute("aria-checked") === "true");
-    let next = current;
-    if (event.key === "ArrowRight" || event.key === "ArrowDown") next = Math.min(order.length - 1, current + 1);
-    if (event.key === "ArrowLeft" || event.key === "ArrowUp") next = Math.max(0, current - 1);
-    if (event.key === "Home") next = 0;
-    if (event.key === "End") next = order.length - 1;
-    setBilling(order[next], true);
-    buttons[next].focus();
-  });
-
-  setBilling("monthly", false);
-}
-
-function onChoosePlan(event) {
-  const button = event.target.closest("[data-choose-plan]");
-  if (!button) return;
-  selectedPlanName = button.dataset.choosePlan;
-  const note = document.getElementById("plan-choice");
-  document.getElementById("plan-choice-name").textContent = selectedPlanName;
-  note.hidden = false;
-  document.getElementById("contacto").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
-  window.setTimeout(() => {
-    document.getElementById("nombre").focus({ preventScroll: true });
-  }, reduceMotion ? 0 : 400);
 }
 
 function initNav() {
@@ -488,6 +141,7 @@ const FIELD_MESSAGES = {
 
 function initForm() {
   const form = document.getElementById("contact-form");
+  if (!form) return;
   const success = document.getElementById("form-success");
   const fields = [...form.querySelectorAll("input, textarea")];
 
@@ -545,8 +199,6 @@ function initForm() {
 }
 
 initWhatsApp();
-renderPlans();
-initBilling();
 initNav();
 initReveal();
 initForm();

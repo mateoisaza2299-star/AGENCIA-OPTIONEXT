@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Precios para digitalizar tu negocio | OPTIONEXT</title>
+  <meta name="description" content="Diagnóstico inicial gratis y planes Arranque, Crecimiento y Ecosistema para negocios de la Sabana de Occidente. Tarifas comerciales en pesos, sin permanencia en la mensualidad.">
+  <meta name="theme-color" content="#4B2E9E">
+  <link rel="icon" href="assets/optionext-logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="precios.css">
+</head>
+<body class="price-page">
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+
+  <header class="nav" id="nav">
+    <div class="nav__bar">
+      <a class="brand" href="index.html">
+        <img class="brand__mark" src="assets/optionext-logo.png" width="48" height="48" alt="">
+        <span class="brand__name">OPTIONEXT</span>
+      </a>
+      <button class="nav__toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-panel">
+        <span class="visually-hidden" id="menu-label">Abrir menú</span>
+        <svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+      <div class="nav__panel" id="nav-panel">
+        <nav aria-label="Principal">
+          <ul class="nav__links">
+            <li><a href="index.html#nosotros">Nosotros</a></li>
+            <li><a href="index.html#servicios">Servicios</a></li>
+            <li><a href="precios.html" aria-current="page">Precios</a></li>
+            <li><a href="facturacion.html">Facturación</a></li>
+            <li><a href="index.html#proceso">Proceso</a></li>
+            <li><a href="index.html#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+        <a class="btn btn--primary btn--sm" data-whatsapp href="#" target="_blank" rel="noopener noreferrer">Agenda un diagnóstico</a>
+        <div class="nav-session" id="nav-session">
+          <a class="btn btn--ghost btn--sm" href="login.html">Iniciar sesión</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="price-jump" aria-label="En esta página">
+    <div class="container price-jump__row">
+      <a href="#diagnostico">Diagnóstico</a>
+      <a href="#niveles">Planes</a>
+      <a href="#servicios-individuales">Servicios sueltos</a>
+      <a href="#adicionales-licencias">Adicionales / Licencias</a>
+      <a href="#faq">FAQ</a>
+    </div>
+  </nav>
+
+  <main id="contenido">
+    <section class="dx-hero" id="diagnostico" aria-labelledby="dx-title">
+      <div class="container dx-hero__inner">
+        <p class="seat">Disponible esta semana: 3 cupos</p>
+        <h1 id="dx-title">Primero entendemos tu negocio, después decidimos qué tecnología sirve</h1>
+        <p class="lede">30-45 min. Presencial en Sabana Occidente o virtual. Sin compromiso. Te entregamos un documento de una página con 3 problemas detectados, una oportunidad rápida y una recomendación honesta.</p>
+        <p class="dx-hero__price" id="dx-price"></p>
+        <div class="price-hero__actions">
+          <a class="btn btn--primary btn--glow" data-whatsapp href="#" target="_blank" rel="noopener noreferrer">Agendar diagnóstico gratis</a>
+          <a class="btn btn--ghost" href="#niveles">Ver precios y planes</a>
+        </div>
+        <ul class="trust trust--checks">
+          <li>Sin tarjeta de crédito</li>
+          <li>Sin compromiso de compra</li>
+          <li>3 estudiantes, no vendedores</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="price-block" id="niveles" aria-labelledby="niveles-title">
+      <div class="container">
+        <header class="section-head section-head--center">
+          <h2 id="niveles-title">Tres niveles. Uno para tu etapa actual.</h2>
+          <p class="lede">Mensualidad sin sorpresas. Setup solo en Crecimiento y Ecosistema. <strong id="annual-note">Anual = 10 meses pagas, 12 meses recibes (2 gratis).</strong></p>
+        </header>
+        <div class="billing-wrap">
+          <div class="billing billing--light" id="billing-toggle" role="radiogroup" aria-label="Periodo de facturación">
+            <button class="billing__btn" type="button" role="radio" data-period="monthly" aria-checked="true" tabindex="0">Mensual</button>
+            <button class="billing__btn" id="billing-annual" type="button" role="radio" data-period="annual" aria-checked="false" tabindex="-1">Anual <span class="billing__save">2 meses gratis</span></button>
+          </div>
+        </div>
+        <p class="visually-hidden" id="billing-live" aria-live="polite"></p>
+        <div class="pricing__grid" id="plan-grid"></div>
+        <p class="fine-print">Todos los precios sin IVA (19% se suma en la factura). El setup se paga una sola vez al contratar. La mensualidad se cobra entre el día 1 y el 5 de cada mes. Cancelación: aviso de 15 días, sin penalidad.</p>
+      </div>
+    </section>
+
+    <section class="price-block price-block--soft" id="comparar" aria-labelledby="comparar-title">
+      <div class="container">
+        <h2 id="comparar-title">Qué cambia entre niveles</h2>
+        <div class="compare" id="comparacion"></div>
+      </div>
+    </section>
+
+    <section class="price-block price-block--soft" id="servicios-individuales" aria-labelledby="sueltos-title">
+      <div class="container">
+        <header class="section-head section-head--center">
+          <h2 id="sueltos-title">¿Solo necesitas una cosa?</h2>
+          <p class="lede">Contrata servicios sueltos. <strong>Web = solo mensualidad.</strong> <strong>Automatizaciones, datos y pagos = instalación única.</strong> Si no hay una cuota de mantenimiento publicada, no inventamos una.</p>
+        </header>
+        <h3 class="group-title">Web (solo mensualidad)</h3>
+        <div class="offer-grid offer-grid--3" id="web-grid"></div>
+        <h3 class="group-title">Automatizaciones (instalación única)</h3>
+        <div class="offer-grid" id="auto-grid"></div>
+        <h3 class="group-title">Datos y pagos</h3>
+        <div class="offer-grid" id="datos-grid"></div>
+      </div>
+    </section>
+
+    <section class="price-block" id="adicionales-licencias" aria-labelledby="extras-title">
+      <div class="container">
+        <header class="section-head section-head--center">
+          <h2 id="extras-title">Adicionales (bajo demanda)</h2>
+          <p class="lede">Solo se contratan si los necesitas. Aquí no hay CRM ni Meta Ads: <a href="https://kommo.com" target="_blank" rel="noopener noreferrer">Kommo</a> o <a href="https://hubspot.com" target="_blank" rel="noopener noreferrer">HubSpot Free</a> para CRM, y aliados de confianza para la pauta.</p>
+        </header>
+        <div class="offer-grid" id="extras-grid"></div>
+
+        <header class="section-head section-head--center license-head" id="licencias">
+          <h2>Licencias perpetuas (pago único)</h2>
+          <p class="lede">Te llevas el código, la documentación, los scripts de despliegue y la capacitación. <strong>Tú asumes: VPS, dominios, WhatsApp Meta, IA, base de datos, pagos, backups, actualizaciones y seguridad.</strong> La mensualidad existe para no cargar con eso.</p>
+        </header>
+        <div id="license-groups"></div>
+        <aside class="warning">
+          <h3>Importante antes de comprar una licencia perpetua</h3>
+          <ul>
+            <li>No hay soporte, actualizaciones, monitoreo, backups automáticos ni seguridad gestionada.</li>
+            <li>Necesitas VPS propio (mínimo Hetzner CX33 $75.000/mes) y nociones básicas de Linux, Docker o Coolify.</li>
+            <li>WhatsApp Meta, OpenRouter, Supabase, Wompi y Metabase: cuentas y facturación 100% tuyas.</li>
+            <li>Si se rompe algo por una actualización de un tercero (Meta, n8n, Baserow), lo arreglas tú o pagas un pack de 5 horas ($150.000).</li>
+            <li>La mensualidad existe para que no te preocupes de nada de lo anterior.</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="price-block price-block--soft" id="filosofia" aria-labelledby="filosofia-title">
+      <div class="container">
+        <article class="philosophy">
+          <h2 id="filosofia-title">Somos estudiantes, por eso cuesta menos. No porque valga menos.</h2>
+          <p>Somos un equipo joven de la Sabana de Occidente. Todavía no cargamos la estructura de una agencia grande, y eso se nota en la tarifa.</p>
+          <p>También se nota en cómo hablamos: te decimos qué necesitas y qué no. Si un plan se queda grande, o si un desarrollo suelto alcanza, lo dejamos por escrito antes de cobrar.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="price-block" id="faq" aria-labelledby="faq-title">
+      <div class="container faq-wrap">
+        <header class="section-head section-head--center">
+          <h2 id="faq-title">Preguntas frecuentes</h2>
+          <p class="lede">Respuestas honestas, sin letra chica.</p>
+        </header>
+        <div class="faq" id="faq-list"></div>
+      </div>
+    </section>
+
+    <section class="price-final" aria-labelledby="cierre-title">
+      <div class="container">
+        <h2 id="cierre-title">¿Listo para empezar? El diagnóstico es gratis.</h2>
+        <p class="lede">30 minutos. 3 problemas detectados. 1 oportunidad rápida. 0 compromiso.</p>
+        <div class="price-final__actions">
+          <a class="btn btn--light" data-whatsapp href="#" target="_blank" rel="noopener noreferrer">Agendar diagnóstico gratis</a>
+          <a class="btn btn--ghost price-final__ghost" data-whatsapp href="#" target="_blank" rel="noopener noreferrer">Por WhatsApp</a>
+        </div>
+        <p class="price-final__note">Juan · Sebastián · Mateo · Sabana de Occidente, Cundinamarca · hola@optionext.com</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a class="brand" href="index.html">
+          <img class="brand__mark" src="assets/optionext-logo.png" width="56" height="56" alt="">
+          <span class="brand__name">OPTIONEXT</span>
+        </a>
+        <p>Diagnóstico y soluciones digitales para MIPYMES y negocios locales.</p>
+      </div>
+      <div>
+        <h2 class="footer__title">Mapa</h2>
+        <ul class="footer__links">
+          <li><a href="index.html#nosotros">Sobre nosotros</a></li>
+          <li><a href="index.html#servicios">Servicios</a></li>
+          <li><a href="precios.html" aria-current="page">Precios</a></li>
+          <li><a href="facturacion.html">Facturación</a></li>
+          <li><a href="index.html#proceso">Cómo trabajamos</a></li>
+          <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer__title">Contacto</h2>
+        <p class="footer__location">Sabana de Occidente, Cundinamarca</p>
+        <p><a data-whatsapp href="#" target="_blank" rel="noopener noreferrer"><span data-whatsapp-display>WhatsApp</span></a></p>
+        <p><a id="footer-email" href="#">Correo</a></p>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <p>© 2026 OPTIONEXT · Sabana de Occidente, Cundinamarca</p>
+    </div>
+  </footer>
+
+  <a id="whatsapp-float" class="wa-float" data-whatsapp href="#" target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.15 6.4 2.15 11.83c0 1.74.46 3.44 1.34 4.94L2 22l5.39-1.41a10 10 0 0 0 4.65 1.18h.01c5.46 0 9.89-4.4 9.89-9.83C21.94 6.4 17.5 2 12.04 2Zm5.76 14.04c-.24.68-1.4 1.3-1.94 1.34-.5.04-1.12.06-1.81-.11-.41-.1-.95-.31-1.64-.61-2.88-1.24-4.76-4.14-4.9-4.33-.14-.2-1.16-1.54-1.16-2.94 0-1.4.73-2.09 1-2.37.26-.28.57-.35.76-.35h.55c.17 0 .41-.07.64.49.24.58.82 2 .89 2.15.07.14.12.32.02.51-.1.2-.14.32-.28.49-.14.17-.3.38-.42.51-.14.14-.29.3-.12.58.17.28.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.42.28.14.45.12.62-.07.17-.2.7-.82.89-1.1.19-.28.38-.23.64-.14.26.09 1.64.77 1.92.91.28.14.47.21.54.33.07.12.07.68-.17 1.36Z"/></svg>
+  </a>
+
+  <script src="script.js"></script>
+  <script type="module" src="js/precios.js"></script>
+  <script type="module" src="js/nav-session.js"></script>
+</body>
+</html>
