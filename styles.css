@@ -636,7 +636,12 @@ section[id] {
   font-size: 0.98rem;
 }
 
-/* Pricing — visual. Los montos viven en script.js */
+/* Pricing — visual. Los montos viven en js/pricing-data.js */
+
+.pricing__more {
+  margin: 1.6rem 0 0;
+  text-align: center;
+}
 .pricing {
   position: relative;
   padding: clamp(4.25rem, 8vw, 6.5rem) 0;
