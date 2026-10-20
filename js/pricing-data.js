@@ -3,7 +3,7 @@
    Montos en pesos colombianos, enteros, sin puntos y sin signo $.
    No copies cifras al HTML. Inicio y precios.html leen este módulo.
 
-   El anual de Arranque, Crecimiento y Ecosistema NO es mensual × 12.
+   El anual de Startex, Pro Option y Businext NO es mensual × 12.
    Se pagan 10 meses y se reciben 12. Esas cifras anuales están escritas aquí.
 
    Servicios web sueltos: solo hay mensual. annualPrice null = no hay anual
@@ -28,12 +28,12 @@ export const diagnostico = {
 export const nivelesPrincipales = [
   {
     id: "arranque",
-    name: "Arranque",
+    name: "Startex",
     popular: false,
     tagline: "Presencia digital y una automatización sencilla para empezar a organizar tu negocio.",
-    monthlyPrice: 150000,
-    annualPrice: 1500000,
-    setupPrice: 0,
+    monthlyPrice: 249900,
+    annualPrice: 2499000,
+    setupPrice: 349900,
     target: "Barberías pequeñas, cafeterías, tiendas de barrio y servicios a domicilio.",
     limits: "Una página y una automatización básica.",
     monthlyIncludes: [
@@ -66,23 +66,23 @@ export const nivelesPrincipales = [
   },
   {
     id: "crecimiento",
-    name: "Crecimiento",
+    name: "Pro Option",
     popular: true,
     tagline: "Administra citas, clientes y fidelidad sin depender del papel ni de hojas de cálculo dispersas.",
-    monthlyPrice: 300000,
-    annualPrice: 3000000,
-    setupPrice: 200000,
+    monthlyPrice: 399900,
+    annualPrice: 3999000,
+    setupPrice: 449900,
     target: "Barberías con varios profesionales, salones, restaurantes y consultorios.",
-    limits: "Todo Arranque, más una automatización y un sitio de hasta seis secciones.",
+    limits: "Todo Startex, más una automatización y un sitio de hasta seis secciones.",
     monthlyIncludes: [
-      "Todo lo de Arranque",
+      "Todo lo de Startex",
       "Citas, clientes y recordatorios",
       "Reservas por WhatsApp y por la web",
       "Fidelidad digital y Google Calendar",
       "Capacitación y ajustes iniciales",
     ],
     features: [
-      "Todo lo de Arranque",
+      "Todo lo de Startex",
       "Sitio de hasta seis secciones",
       "Panel de administración",
       "Citas y clientes",
@@ -104,23 +104,23 @@ export const nivelesPrincipales = [
   },
   {
     id: "ecosistema",
-    name: "Ecosistema",
+    name: "Businext",
     popular: false,
     tagline: "Conecta citas, pagos, inventario y métricas para gestionar tu operación desde un mismo ecosistema.",
-    monthlyPrice: 550000,
-    annualPrice: 5500000,
-    setupPrice: 400000,
+    monthlyPrice: 599900,
+    annualPrice: 5999000,
+    setupPrice: 749000,
     target: "Varias sedes, equipos más grandes y operaciones más complejas.",
     limits: "Hasta dos sedes y automatizaciones extra.",
     monthlyIncludes: [
-      "Todo lo de Crecimiento",
+      "Todo lo de Pro Option",
       "Pagos con Wompi e inventario básico",
       "Dashboard de métricas",
       "Hasta dos sedes y copias diarias",
       "Soporte prioritario y capacitación extendida",
     ],
     features: [
-      "Todo lo de Crecimiento",
+      "Todo lo de Pro Option",
       "Pagos con Wompi",
       "Inventario básico",
       "Dashboard de métricas",
@@ -241,7 +241,7 @@ export const comparacion = [
   { label: "Inventario", values: ["No", "No", "Básico"] },
   { label: "Dashboard", values: ["No", "No", "Sí"] },
   { label: "Multi-sede", values: ["No", "No", "Hasta 2 sedes"] },
-  { label: "Límites principales", values: ["1 automatización básica", "Arranque + 1 automatización", "2 sedes y automatizaciones extra"] },
+  { label: "Límites principales", values: ["1 automatización básica", "Startex + 1 automatización", "2 sedes y automatizaciones extra"] },
 ];
 
 export const faqUnificado = [
@@ -263,7 +263,7 @@ export const faqUnificado = [
   },
   {
     q: "¿Puedo cambiar de nivel?",
-    a: "Sí. Puedes pasar de Arranque a Crecimiento o a Ecosistema. Lo acordamos por WhatsApp y aplica al siguiente periodo. Si el nivel nuevo tiene setup y todavía no lo pagaste, esa diferencia se cobra una vez.",
+    a: "Sí. Puedes pasar de Startex a Pro Option o a Businext. Lo acordamos por WhatsApp y aplica al siguiente periodo. Si el nivel nuevo tiene setup y todavía no lo pagaste, esa diferencia se cobra una vez.",
   },
   {
     q: "¿Qué cubre la mensualidad?",
@@ -275,7 +275,7 @@ export const faqUnificado = [
   },
   {
     q: "¿Cómo funciona el plan anual?",
-    a: "Con el pago anual, pagas 10 meses y recibes 12 meses de servicio. Aplica a Arranque, Crecimiento y Ecosistema. No aplica a servicios de un solo pago ni a licencias perpetuas.",
+    a: "Con el pago anual, pagas 10 meses y recibes 12 meses de servicio. Aplica a Startex, Pro Option y Businext. No aplica a servicios de un solo pago ni a licencias perpetuas.",
   },
   {
     q: "¿Ofrecen CRM o administración de Meta Ads?",
