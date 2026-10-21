@@ -418,10 +418,6 @@ const conditions = [
 
 const faq = [
   {
-    q: "¿Estos precios incluyen IVA?",
-    a: "Los precios publicados son las tarifas comerciales sin IVA. El 19% se suma en la factura. Esta página no es la factura: el desglose queda en la propuesta.",
-  },
-  {
     q: "¿Qué es la tarifa de lanzamiento?",
     a: "Es el precio publicado en grande. Cuando hay un precio estándar, aparece debajo. Cualquier promoción, incluido el primer mes gratis o pagar 9 meses por 12, aplica solo cuando está escrita en la propuesta de ese cliente.",
   },
