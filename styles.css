@@ -629,7 +629,7 @@ section[id] {
   font-size: 0.98rem;
 }
 
-/* Pricing — visual. Los montos viven en js/pricing-data.js */
+/* Pricing — visual. Los montos viven en js/precios.js */
 
 .pricing__more {
   margin: 1.6rem 0 0;

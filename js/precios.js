@@ -1,23 +1,467 @@
-import {
-  ANNUAL_NOTE,
-  ANNUAL_UNKNOWN,
-  adicionales,
-  automatizacionesIndividuales,
-  comparacion,
-  datosYPagos,
-  diagnostico,
-  faqUnificado,
-  formatPrice,
-  formatPriceShort,
-  licenciasPerpetuas,
-  nivelesPrincipales,
-  webIndividual,
-} from "./pricing-data.js";
-import { planMessage, whatsappHref } from "./config.js";
+import { whatsappHref } from "./config.js";
 
-const CHECK = `<svg class="check" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="10"></circle><path d="M5.8 10.2 8.5 12.9 14.2 7.2"></path></svg>`;
+export function formatMoney(amount) {
+  const withDots = String(Math.round(Number(amount) || 0)).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  return `$${withDots} COP`;
+}
 
-let period = "monthly";
+export const diagnostico = {
+  name: "Diagnóstico inicial",
+  price: 0,
+  gratis: true,
+};
+
+export const launchNotice = "Tarifas de lanzamiento para los primeros 10 clientes fundadores. No se acumulan con otras promociones.";
+
+const monthlyCover = "Qué cubre la mensualidad: gestión y soporte del servicio contratado, revisión funcional periódica si se indica en la propuesta y pequeños ajustes dentro de un límite acordado por escrito. El mantenimiento solo está incluido cuando la propuesta lo indica. El precio de configuración y el mensual se muestran siempre separados.";
+
+const stepNote = "El número de pasos es una referencia. Si el proceso excede el alcance, presentamos una ampliación de cotización antes de ejecutarla.";
+
+const maintenanceNotes = [
+  "No incluye rediseño del flujo, cambios de lógica sustanciales ni nuevas aplicaciones.",
+  "El consumo de IA, WhatsApp, Meta y otros proveedores se cobra aparte.",
+  "Si un problema exige más tiempo o una nueva integración, informamos el costo antes de continuar.",
+];
+
+const addonNotes = [
+  "El precio del dominio es una referencia y se aclara quién es el titular y qué pasa con la renovación.",
+  "Menú y QR requieren que el cliente entregue productos, precios, fotos y textos.",
+  "Los cambios posteriores se cotizan si exceden los ajustes pactados.",
+];
+
+const licenseIntro = "Pago único, precio de referencia. Es una modalidad de entrega y uso, no pagar una vez y tener todo para siempre.";
+
+const licenseClear = [
+  "El tipo de derecho: licencia de uso, cesión de derechos o entrega de código.",
+  "Dominio, VPS, bases de datos, consumo de IA y mensajería no están incluidos.",
+  "Qué archivos, repositorios, accesos y documentación se entregan.",
+  "El pago único no incluye mantenimiento perpetuo, nuevas funciones ni soporte ilimitado.",
+  "Qué componentes son de OPTIONEXT y cuáles de terceros, con sus propias condiciones.",
+];
+
+const licenseNote = "Soluciones con mayores requisitos de seguridad, volumen, integraciones o personalización requieren cotización específica.";
+
+export const paquetes = [
+  {
+    id: "startex",
+    name: "Startex",
+    label: "Para comenzar",
+    recommended: false,
+    setup: { launch: 690000, standard: 790000 },
+    monthly: { launch: 179000, standard: 199000 },
+    includes: [
+      "Web esencial",
+      "Una automatización básica",
+      "Conexión entre la web y la automatización cuando el proceso lo permita",
+      "Pruebas del flujo completo",
+      "Instrucciones básicas de uso",
+    ],
+    excludes: [],
+    ideal: "Un emprendimiento que quiere recibir contactos y dejar de registrar a mano cada solicitud.",
+  },
+  {
+    id: "pro-option",
+    name: "Pro Option",
+    label: "Para crecer",
+    recommended: true,
+    setup: { launch: 1390000, standard: 1490000 },
+    monthly: { launch: 379000, standard: 419000 },
+    includes: [
+      "Web intermedia",
+      "Una automatización intermedia",
+      "Integración del formulario o canal de contacto con el proceso automatizado",
+      "Reglas de validación y notificaciones",
+      "Pruebas de la solución integrada",
+      "Documentación básica",
+    ],
+    excludes: [],
+    ideal: "Una empresa que quiere centralizar contactos y automatizar parte del seguimiento comercial.",
+  },
+  {
+    id: "businext",
+    name: "Businext",
+    label: "Solución avanzada",
+    recommended: false,
+    setup: { launch: 2790000, standard: 2890000 },
+    monthly: { launch: 649000, standard: 699000 },
+    includes: [
+      "Web avanzada",
+      "Una automatización avanzada con IA",
+      "Integración de la web con el proceso de IA cuando sea viable",
+      "Validaciones",
+      "Registro básico de errores",
+      "Derivación a una persona si aplica",
+      "Pruebas de extremo a extremo",
+      "Documentación y capacitación breve",
+    ],
+    excludes: ["No es un ecosistema ilimitado ni una aplicación empresarial completa."],
+    ideal: "Empresas que necesitan una presencia digital más personalizada y automatizar un proceso que interpreta solicitudes.",
+  },
+];
+
+const web = [
+  {
+    name: "Web esencial",
+    label: "Inicial",
+    monthly: { launch: 99000 },
+    includes: [
+      "Landing con inicio, servicios, beneficios, contacto y preguntas frecuentes",
+      "Diseño adaptable",
+      "Botón de WhatsApp y redes",
+      "Formulario de contacto sencillo",
+      "Títulos y metadatos SEO básicos",
+      "Una ronda de ajustes",
+      "Publicación y revisión inicial",
+    ],
+    excludes: [
+      "Tienda en línea",
+      "Pagos",
+      "Panel administrativo",
+      "Automatizaciones avanzadas",
+      "Contenido ilimitado",
+    ],
+  },
+  {
+    name: "Web intermedia",
+    label: "Negocio en crecimiento",
+    monthly: { launch: 229000 },
+    includes: [
+      "Hasta 5 páginas o secciones",
+      "Diseño adaptable y navegación",
+      "Servicios, acerca de, contacto y preguntas frecuentes",
+      "Formulario, WhatsApp y redes",
+      "SEO técnico básico",
+      "Una herramienta sencilla de analítica",
+      "Hasta 2 rondas de ajustes",
+      "Revisión de enlaces, formularios y dispositivos",
+    ],
+    excludes: [
+      "Comercio electrónico",
+      "CRM personalizado",
+      "Membresías",
+      "Reservas complejas",
+      "Integraciones adicionales",
+    ],
+  },
+  {
+    name: "Web avanzada",
+    label: "Mayor personalización",
+    monthly: { launch: 379000 },
+    includes: [
+      "Hasta 8 páginas o secciones",
+      "Diseño personalizado según la marca",
+      "Formularios con validaciones",
+      "Una o dos herramientas externas sencillas",
+      "SEO técnico, metadatos y optimización inicial de rendimiento",
+      "Analítica básica",
+      "Hasta 3 rondas de ajustes",
+      "Pruebas antes de publicar",
+    ],
+    excludes: [
+      "Aplicaciones web complejas",
+      "Tiendas con inventario avanzado",
+      "Portales privados",
+      "Suscripciones",
+      "Funcionalidades ilimitadas",
+      "Licencias de terceros",
+    ],
+  },
+];
+
+const automations = [
+  {
+    name: "Automatización básica",
+    label: "Elimina una tarea manual repetitiva.",
+    setup: { launch: 690000, standard: 890000 },
+    includes: [
+      "Un flujo principal de hasta 3 pasos",
+      "Una fuente de entrada y hasta 2 servicios conectados",
+      "Reglas sencillas",
+      "Manejo básico de errores y registro",
+      "Pruebas con datos de ejemplo",
+      "Guía breve",
+      "Una ronda de ajustes",
+    ],
+    excludes: [
+      "Agentes de IA",
+      "Flujos complejos",
+      "Migraciones grandes",
+      "Integraciones de pago",
+    ],
+  },
+  {
+    name: "Automatización intermedia",
+    label: "Conecta varias actividades de un proceso.",
+    setup: { launch: 1390000, standard: 1690000 },
+    includes: [
+      "Hasta 2 flujos relacionados",
+      "Hasta 5 pasos por flujo",
+      "Hasta 3 servicios conectados",
+      "Condiciones y validaciones",
+      "Integración con formularios, hojas de cálculo, bases de datos, CRM o calendarios compatibles",
+      "Notificaciones, confirmaciones o recordatorios",
+      "Registro de errores",
+      "Documentación básica",
+      "Hasta 2 rondas de ajustes",
+    ],
+    excludes: [
+      "IA avanzada",
+      "Desarrollos grandes",
+      "Integraciones sin API",
+      "Procesos ilimitados",
+    ],
+  },
+  {
+    name: "Automatización avanzada con IA",
+    label: "Un caso de uso con IA.",
+    setup: { launch: 2790000, standard: 3290000 },
+    includes: [
+      "Clasificar solicitudes, resumir, responder preguntas frecuentes o extraer datos",
+      "Hasta 2 flujos relacionados",
+      "Hasta 4 integraciones viables",
+      "Reglas que limitan al modelo",
+      "Validación de entradas y manejo de respuestas fallidas",
+      "Derivación a una persona si aplica",
+      "Pruebas con casos normales y excepciones",
+      "Documentación",
+      "Capacitación breve",
+      "Hasta 2 rondas de ajustes",
+    ],
+    excludes: [
+      "Consumo ilimitado de IA",
+      "Entrenamiento de un modelo propio",
+      "Chatbot omnicanal completo",
+      "Decisiones críticas autónomas",
+      "Integraciones complejas",
+    ],
+  },
+];
+
+const maintenanceExcludes = [
+  "Rediseño del flujo",
+  "Cambios de lógica sustanciales",
+  "Nuevas aplicaciones",
+];
+
+const maintenance = [
+  {
+    name: "Mantenimiento básico",
+    label: "Una automatización básica.",
+    monthly: { launch: 49900, standard: 69900 },
+    includes: [
+      "Una revisión funcional mensual",
+      "Verificación de errores",
+      "Corrección de fallos menores del flujo",
+      "Hasta 30 minutos de ajustes menores",
+      "Soporte por el canal acordado",
+    ],
+    excludes: maintenanceExcludes,
+  },
+  {
+    name: "Mantenimiento intermedio",
+    label: "Hasta 2 flujos relacionados.",
+    monthly: { launch: 99900, standard: 129900 },
+    includes: [
+      "Todo lo del básico",
+      "Revisión de conexiones y datos",
+      "Calendarios, recordatorios o confirmaciones",
+      "Hasta 60 minutos de ajustes",
+      "Revisión de registros de errores",
+    ],
+    excludes: maintenanceExcludes,
+  },
+  {
+    name: "Mantenimiento avanzado con IA",
+    label: "Un proceso avanzado.",
+    monthly: { launch: 179900, standard: 229900 },
+    includes: [
+      "Todo lo del intermedio",
+      "Revisión de clasificación o respuestas de la IA",
+      "Comprobación de la derivación a una persona",
+      "Revisión de fallos repetidos con recomendaciones",
+      "Hasta 90 minutos de ajustes",
+    ],
+    excludes: maintenanceExcludes,
+  },
+];
+
+const addons = [
+  {
+    name: "Dominio .com",
+    price: 59000,
+    unit: "/año",
+    includes: ["Registro o renovación sujeto a disponibilidad y precio del registrador."],
+    excludes: [],
+  },
+  {
+    name: "Configuración de dominio",
+    price: 69000,
+    unit: "una vez",
+    includes: ["Conectar el dominio, configurar DNS y verificar el acceso."],
+    excludes: [],
+  },
+  {
+    name: "Integración de Wompi",
+    price: 249000,
+    unit: "una vez",
+    includes: ["Integración estándar de pagos, credenciales y pruebas."],
+    excludes: ["Comisiones", "Garantía de aprobación de la cuenta comercial"],
+  },
+  {
+    name: "Menú digital",
+    price: 179000,
+    unit: "una vez",
+    includes: ["Una página o vista", "Categorías y precios que entrega el cliente", "Adaptable a móviles"],
+    excludes: [],
+  },
+  {
+    name: "Diseño de código QR",
+    price: 39000,
+    unit: "una vez",
+    includes: ["Diseño gráfico de un QR hacia un enlace dado", "Prueba de lectura"],
+    excludes: [],
+  },
+  {
+    name: "Configuración de Baserow",
+    price: 249000,
+    unit: "una vez",
+    includes: ["Una base de datos sencilla", "Tablas y campos acordados", "Vistas básicas y configuración inicial"],
+    excludes: [],
+  },
+  {
+    name: "Alojamiento y soporte de Baserow",
+    price: 44900,
+    unit: "/mes",
+    includes: ["Supervisión básica de la instancia administrada por OPTIONEXT."],
+    excludes: ["Almacenamiento, copias de seguridad y soporte ilimitados. Se definen en la propuesta."],
+  },
+  {
+    name: "Configuración de campaña en Meta",
+    price: 249000,
+    unit: "una vez",
+    includes: ["Una campaña", "Estructura básica de anuncios y público según la información del cliente"],
+    excludes: [],
+  },
+  {
+    name: "Gestión de campaña en Meta",
+    price: 200000,
+    unit: "/mes",
+    includes: ["Seguimiento de una campaña y ajustes básicos acordados."],
+    excludes: ["El presupuesto publicitario lo paga el cliente directamente a Meta.", "No se garantizan ventas ni resultados."],
+  },
+  {
+    name: "Integración adicional",
+    price: 349000,
+    from: true,
+    includes: ["Una integración estándar, previa revisión de la API, permisos y complejidad."],
+    excludes: [],
+  },
+  {
+    name: "Soporte adicional",
+    price: 45000,
+    unit: "por hora",
+    includes: ["Trabajo fuera del alcance contratado, autorizado antes por el cliente."],
+    excludes: [],
+  },
+];
+
+const licenses = [
+  {
+    name: "Licencia de página web",
+    price: 4490000,
+    includes: [
+      "Web de complejidad intermedia con diseño y funcionalidades acordadas",
+      "Pruebas",
+      "Documentación",
+      "Entrega de archivos y código propio incluido expresamente",
+      "Instrucciones para desplegarla o administrarla",
+    ],
+    excludes: [],
+  },
+  {
+    name: "Licencia de automatización",
+    price: 3490000,
+    includes: [
+      "Una automatización intermedia",
+      "Código o configuración exportable según la tecnología",
+      "Documentación del flujo y sus dependencias",
+      "Pruebas",
+      "Manual básico de operación con requisitos",
+    ],
+    excludes: [],
+  },
+  {
+    name: "Licencia de ecosistema completo",
+    price: 11900000,
+    includes: [
+      "Web avanzada",
+      "Automatización avanzada con IA",
+      "Integración de ambas",
+      "Pruebas",
+      "Documentación técnica y guía de uso",
+      "Componentes propios incluidos en el acuerdo",
+    ],
+    excludes: [],
+  },
+];
+
+const conditions = [
+  "El cliente entrega textos, imágenes, logotipos, precios, credenciales y materiales. Los retrasos pueden mover la fecha de publicación.",
+  "Cada propuesta indica cuántas rondas de cambios incluye. Una ronda es un conjunto de observaciones entregado en una sola comunicación. Lo que cambie el alcance se cotiza aparte.",
+  "Garantía contractual de 30 días: cubre los defectos que defina el contrato y excluye lo que allí se indique. Es independiente del periodo de revisión acordado.",
+  "Suscripciones, alojamiento, consumo de IA, cargos de WhatsApp o Meta y comisiones de pasarelas se cobran por separado. Si OPTIONEXT los administra, se aclara quién los paga y quién es titular de la cuenta.",
+  "El mantenimiento cubre solo lo descrito en el plan. Nuevas funciones, rediseños e integraciones adicionales requieren aprobación y cotización.",
+  "Podemos adaptar la propuesta al presupuesto priorizando funciones, reduciendo el alcance inicial o implementando por etapas. No significa las mismas funciones por menos dinero, y todo cambio se acuerda antes de empezar.",
+  launchNotice,
+  "En servicios mensuales se especifican fecha de cobro, renovación, cancelación, consecuencias de pagos pendientes y entrega de archivos o accesos. No hay permanencia mínima salvo que se pacte por escrito.",
+];
+
+const faq = [
+  {
+    q: "¿Estos precios incluyen IVA?",
+    a: "Los precios publicados son las tarifas comerciales sin IVA. El 19% se suma en la factura. Esta página no es la factura: el desglose queda en la propuesta.",
+  },
+  {
+    q: "¿Qué es la tarifa de lanzamiento?",
+    a: "Tarifas de lanzamiento para los primeros 10 clientes fundadores. No se acumulan con otras promociones. Cuando hay un precio estándar, aparece debajo del de lanzamiento.",
+  },
+  {
+    q: "¿Qué cubre la mensualidad?",
+    a: "Gestión y soporte del servicio contratado, revisión funcional periódica si se indica en la propuesta y pequeños ajustes dentro de un límite acordado por escrito. El mantenimiento solo está incluido cuando la propuesta lo indica. El precio de configuración y el mensual se muestran siempre separados.",
+  },
+  {
+    q: "¿Hay permanencia mínima? ¿Cómo cancelo?",
+    a: "No hay permanencia mínima salvo que se pacte por escrito. La mensualidad se cobra entre el día 1 y el 5 de cada mes. Cancelación: aviso de 15 días, sin penalidad. En un servicio mensual la propuesta indica fecha de cobro, renovación, cancelación, consecuencias de pagos pendientes y entrega de archivos o accesos.",
+  },
+  {
+    q: "¿Qué cubre la garantía?",
+    a: "Garantía contractual de 30 días, según el contrato. Cubre los defectos que defina el contrato y excluye lo que allí se indique. Es independiente del periodo de revisión acordado.",
+  },
+  {
+    q: "¿La web se contrata con mensualidad?",
+    a: "Sí. La web es solo mensualidad, a tarifa de lanzamiento. La automatización es una instalación única y su mantenimiento mensual es opcional.",
+  },
+  {
+    q: "¿Qué no cubre el mantenimiento de una automatización?",
+    a: "Solo aplica a algo ya construido y no incluye flujos nuevos. No incluye rediseño del flujo, cambios de lógica sustanciales ni nuevas aplicaciones. El consumo de IA, WhatsApp, Meta y otros proveedores se cobra aparte. Si un problema exige más tiempo o una nueva integración, informamos el costo antes de continuar.",
+  },
+  {
+    q: "¿Qué es una licencia?",
+    a: "Es un pago único de referencia: una modalidad de entrega y uso, no pagar una vez y tener todo para siempre. No incluye mantenimiento perpetuo, nuevas funciones ni soporte ilimitado. Dominio, VPS, bases de datos, consumo de IA y mensajería no están incluidos.",
+  },
+  {
+    q: "¿Qué CRM recomiendan?",
+    a: "Para CRM recomendamos Kommo o HubSpot Free.",
+  },
+  {
+    q: "¿Pueden adaptar la propuesta a mi presupuesto?",
+    a: "Podemos priorizar funciones, reducir el alcance inicial o implementar por etapas. No significa las mismas funciones por menos dinero, y todo cambio se acuerda antes de empezar.",
+  },
+  {
+    q: "¿Qué pasa si el proceso se sale del alcance?",
+    a: "El número de pasos es una referencia. Si el proceso excede el alcance, presentamos una ampliación de cotización antes de ejecutarla. Soluciones con mayores requisitos de seguridad, volumen, integraciones o personalización requieren cotización específica.",
+  },
+];
 
 function el(tag, className, text) {
   const node = document.createElement(tag);
@@ -26,280 +470,195 @@ function el(tag, className, text) {
   return node;
 }
 
-function wa(text) {
-  return whatsappHref(text);
+function quoteLink(name, featured) {
+  const link = el("a", featured ? "btn btn--primary btn--glow btn--block" : "btn btn--ghost btn--block", "Cotizar por WhatsApp");
+  link.href = whatsappHref(`Hola, quiero cotizar ${name}.`);
+  link.target = "_blank";
+  link.rel = "noopener";
+  return link;
 }
 
-function quoteHref(service) {
-  const msg = [
-    `Hola OPTIONEXT, quiero cotización formal para: ${service.name} (${service.id}).`,
-    "Mi negocio: [tipo]. Ubicación: [ciudad].",
-    "Presupuesto estimado: [rango].",
-    "¿Cuándo podemos agendar diagnóstico gratis?",
-  ].join("\n");
-  return wa(msg);
-}
-
-function checks(items) {
-  const list = el("ul", "tick-list");
-  items.forEach((feature) => {
-    const item = document.createElement("li");
-    item.innerHTML = CHECK;
-    item.append(el("span", null, feature));
-    list.append(item);
-  });
+function bullets(items) {
+  const list = el("ul", "scope__list");
+  items.forEach((item) => list.append(el("li", null, item)));
   return list;
 }
 
-function moreDetails(items, from, label) {
-  if (items.length <= from) return null;
-  const details = el("details", "more");
-  const summary = el("summary", null, `${label} (+${items.length - from})`);
-  const list = el("ul", null);
-  items.slice(from).forEach((feature) => list.append(el("li", null, feature)));
-  details.append(summary, list);
+function scope(includes, excludes) {
+  const details = el("details", "scope");
+  details.append(el("summary", null, "Ver alcance"));
+  if (includes.length) {
+    details.append(el("p", "scope__title", "Qué incluye"), bullets(includes));
+  }
+  if (excludes.length) {
+    details.append(el("p", "scope__title", "No incluye"), bullets(excludes));
+  }
   return details;
 }
 
-function renderDiagnosisPrice() {
+function dual(pair, unit) {
+  const wrap = el("div", "duo");
+  const now = el("p", "duo__now");
+  now.append(el("span", "duo__tag", "Lanzamiento"), el("strong", null, formatMoney(pair.launch)));
+  if (unit) now.append(el("span", "duo__unit", unit));
+  wrap.append(now);
+  if (pair.standard != null) wrap.append(el("p", "duo__std", `Estándar: ${formatMoney(pair.standard)}`));
+  return wrap;
+}
+
+function oncePrice(item) {
+  const wrap = el("div", "duo");
+  const now = el("p", "duo__now");
+  const amount = item.from ? `desde ${formatMoney(item.price)}` : formatMoney(item.price);
+  now.append(el("strong", null, amount));
+  if (item.unit) now.append(el("span", "duo__unit", item.unit));
+  wrap.append(now);
+  return wrap;
+}
+
+function sheet(items, priceNode) {
+  const root = el("div", "sheet");
+  root.setAttribute("role", "table");
+  const head = el("div", "sheet__row sheet__row--head");
+  head.setAttribute("role", "row");
+  ["Servicio", "Precio", "Alcance"].forEach((label) => {
+    const cell = el("div", null, label);
+    cell.setAttribute("role", "columnheader");
+    head.append(cell);
+  });
+  root.append(head);
+  items.forEach((item) => {
+    const row = el("article", "sheet__row");
+    row.setAttribute("role", "row");
+    const name = el("div", "sheet__name");
+    name.setAttribute("role", "cell");
+    name.append(el("h3", null, item.name));
+    if (item.label) name.append(el("p", null, item.label));
+    const price = el("div", "sheet__price");
+    price.setAttribute("role", "cell");
+    price.append(priceNode(item));
+    const reach = el("div", "sheet__reach");
+    reach.setAttribute("role", "cell");
+    reach.append(scope(item.includes, item.excludes), quoteLink(item.name));
+    row.append(name, price, reach);
+    root.append(row);
+  });
+  return root;
+}
+
+function notes(lines) {
+  const list = el("ul", "plain-notes");
+  lines.forEach((line) => list.append(el("li", null, line)));
+  return list;
+}
+
+function renderDiagnosis() {
   const node = document.getElementById("dx-price");
-  if (!node) return;
-  node.textContent = diagnostico.gratis ? `Gratis · ${formatPrice(diagnostico.price)}` : formatPrice(diagnostico.price);
+  if (!node || !diagnostico.gratis) return;
+  node.textContent = `Gratis · ${formatMoney(diagnostico.price)}`;
 }
 
-function planButtonLabel(plan) {
-  const annual = period === "annual";
-  const price = formatPrice(annual ? plan.annualPrice : plan.monthlyPrice);
-  const unit = annual ? "año" : "mes";
-  if (plan.setupPrice > 0) {
-    return `Empezar: ${formatPrice(plan.setupPrice)} setup + ${price}/${unit}`;
-  }
-  return `Empezar por ${price}/${unit}`;
-}
-
-function renderPlans() {
+function renderPackages() {
+  const notice = document.getElementById("launch-note");
+  if (notice) notice.textContent = launchNotice;
   const grid = document.getElementById("plan-grid");
   if (!grid) return;
-  grid.replaceChildren();
-  nivelesPrincipales.forEach((plan) => {
-    const card = el("article", plan.popular ? "plan plan--featured" : "plan");
+  paquetes.forEach((plan) => {
+    const card = el("article", plan.recommended ? "plan plan--featured" : "plan");
     card.id = plan.id;
-    if (plan.popular) card.append(el("p", "plan__badge", "Más elegido"));
-    card.append(el("h3", "plan__name", plan.name), el("p", "plan__ideal", plan.tagline));
-
-    const price = el("p", "plan__price");
-    const amount = el("span", "plan__amount", "");
-    amount.dataset.mainPrice = plan.id;
-    const suffix = el("span", "plan__period", "/mes");
-    price.append(amount, suffix);
-    card.append(price);
-
-    const annualLine = el("p", "plan__note", "");
-    annualLine.dataset.mainNote = plan.id;
-    card.append(annualLine);
-
-    const setup = el("p", "plan__setup", "");
-    setup.dataset.setup = plan.id;
-    card.append(setup);
-
-    const cta = el("a", plan.popular ? "btn btn--primary btn--glow btn--block plan__cta" : "btn btn--ghost btn--block plan__cta");
-    cta.dataset.planCta = plan.id;
-    cta.target = "_blank";
-    cta.rel = "noopener noreferrer";
-    card.append(cta);
-
-    const featureList = checks(plan.features.slice(0, 6));
-    const extra = moreDetails(plan.features, 6, "Ver más");
-    card.append(featureList);
-    if (extra) card.append(extra);
-
-    const meta = el("div", "plan__meta");
-    meta.append(el("p", null, `Límites: ${plan.limits}`), el("p", null, `Ideal para: ${plan.target}`));
-    card.append(meta);
-
-    const excluded = el("details", "more");
-    excluded.append(el("summary", null, "Qué no incluye"), el("ul"));
-    const excludedList = excluded.querySelector("ul");
-    plan.notIncluded.forEach((item) => excludedList.append(el("li", null, item)));
-    card.append(excluded);
+    if (plan.recommended) card.append(el("p", "plan__badge", "Recomendado"));
+    card.append(el("h3", "plan__name", plan.name), el("p", "plan__ideal", plan.label));
+    const prices = el("div", "plan__prices");
+    prices.append(el("p", "duo__caption", "Mensualidad"), dual(plan.monthly, "/mes"));
+    prices.append(el("p", "duo__caption", "Configuración"), dual(plan.setup));
+    card.append(prices, el("p", "plan__ideal", plan.ideal), scope(plan.includes, plan.excludes), quoteLink(plan.name, plan.recommended));
     grid.append(card);
   });
+  const cover = document.getElementById("monthly-cover");
+  if (cover) cover.textContent = monthlyCover;
 }
 
-function serviceCard(service, recurring, label) {
-  const card = el("article", "offer");
-  const head = el("div", "offer__head");
-  const titles = el("div");
-  titles.append(el("h4", null, service.name));
-  if (service.tagline) titles.append(el("p", null, service.tagline));
-  const price = el("p", "offer__price");
-  if (recurring) {
-    price.append(el("strong", null, formatPrice(service.monthlyPrice)), el("span", null, "/mes"));
-    const annual = el("span", "offer__annual", "");
-    annual.dataset.webPrice = service.id;
-    price.append(annual);
-  } else {
-    price.append(el("strong", null, formatPrice(service.price)), el("span", null, "único"));
-    if (service.monthlyOption) {
-      price.append(el("span", "offer__annual", `Mant. opcional: ${formatPrice(service.monthlyOption)}/mes`));
-    }
-  }
-  head.append(titles, price);
-  card.append(head);
-  if (service.features?.length) {
-    card.append(checks(service.features.slice(0, 4)));
-    const extra = moreDetails(service.features, 4, "Ver más");
-    if (extra) card.append(extra);
-  }
-  if (service.target) card.append(el("p", "offer__ideal", `Ideal: ${service.target}`));
-  const button = el("a", "btn btn--ghost btn--block", label || "Pedir cotización formal");
-  button.href = quoteHref(service);
-  button.target = "_blank";
-  button.rel = "noopener noreferrer";
-  card.append(button);
-  return card;
+function renderWeb() {
+  const root = document.getElementById("web-sheet");
+  if (root) root.append(sheet(web, (item) => dual(item.monthly, "/mes")));
 }
 
-function renderCatalog() {
-  const web = document.getElementById("web-grid");
-  const autos = document.getElementById("auto-grid");
-  const datos = document.getElementById("datos-grid");
-  const extras = document.getElementById("extras-grid");
-  if (web) webIndividual.forEach((service) => web.append(serviceCard(service, true)));
-  if (autos) automatizacionesIndividuales.forEach((service) => autos.append(serviceCard(service, false)));
-  if (datos) datosYPagos.forEach((service) => datos.append(serviceCard(service, false)));
-  if (extras) adicionales.forEach((service) => extras.append(serviceCard(service, false, "Pedir cotización")));
+function renderAutomations() {
+  const root = document.getElementById("auto-sheet");
+  if (root) root.append(sheet(automations, (item) => dual(item.setup)));
+  const note = document.getElementById("auto-note");
+  if (note) note.textContent = stepNote;
+}
+
+function renderMaintenance() {
+  const root = document.getElementById("care-sheet");
+  if (root) root.append(sheet(maintenance, (item) => dual(item.monthly, "/mes")));
+  const note = document.getElementById("care-notes");
+  if (note) note.append(notes(maintenanceNotes));
+}
+
+function renderAddons() {
+  const crm = document.getElementById("crm-note");
+  if (crm) {
+    crm.append("Para CRM recomendamos ");
+    const kommo = el("a", null, "Kommo");
+    kommo.href = "https://kommo.com";
+    kommo.target = "_blank";
+    kommo.rel = "noopener noreferrer";
+    const hubspot = el("a", null, "HubSpot Free");
+    hubspot.href = "https://www.hubspot.com";
+    hubspot.target = "_blank";
+    hubspot.rel = "noopener noreferrer";
+    crm.append(kommo, " o ", hubspot, ".");
+  }
+  const root = document.getElementById("addon-sheet");
+  if (root) root.append(sheet(addons, oncePrice));
+  const note = document.getElementById("addon-notes");
+  if (note) note.append(notes(addonNotes));
 }
 
 function renderLicenses() {
-  const root = document.getElementById("license-groups");
-  if (!root) return;
-  const groups = [
-    { title: "Automatización", items: licenciasPerpetuas.filter((item) => item.id.startsWith("lic-auto")) },
-    { title: "Web", items: licenciasPerpetuas.filter((item) => item.id.startsWith("lic-web") && item.id !== "lic-web-ecosistema") },
-    { title: "Ecosistema completo", items: licenciasPerpetuas.filter((item) => item.id === "lic-web-ecosistema") },
-  ];
-  groups.forEach((group) => {
-    const block = el("div", "license-group");
-    block.append(el("h3", null, group.title));
-    if (!group.items.length) {
-      block.append(el("p", "empty-note", "No hay una tarifa publicada para esta licencia. El valor se acuerda en la propuesta, sin un precio de ejemplo."));
-    } else {
-      const grid = el("div", "offer-grid");
-      group.items.forEach((license) => grid.append(serviceCard({ ...license, price: license.price }, false)));
-      block.append(grid);
-    }
-    root.append(block);
-  });
+  const intro = document.getElementById("license-intro");
+  if (intro) intro.textContent = licenseIntro;
+  const root = document.getElementById("license-sheet");
+  if (root) root.append(sheet(licenses, oncePrice));
+  const clear = document.getElementById("license-clear");
+  if (clear) {
+    clear.append(el("h3", null, "Qué debe quedar claro"), notes(licenseClear));
+  }
+  const extra = document.getElementById("license-note");
+  if (extra) extra.textContent = licenseNote;
 }
 
-function renderCompare() {
-  const root = document.getElementById("comparacion");
+function renderConditions() {
+  const root = document.getElementById("condition-list");
   if (!root) return;
-  const head = el("div", "compare__row compare__row--head");
-  head.append(el("p", "compare__label", "Incluye"));
-  nivelesPrincipales.forEach((plan) => head.append(el("p", "compare__head", plan.name)));
-  root.append(head);
-  comparacion.forEach((row) => {
-    const line = el("div", "compare__row");
-    line.append(el("p", "compare__label", row.label));
-    row.values.forEach((value, index) => {
-      const cell = el("p", "compare__cell");
-      cell.append(el("span", "compare__who", nivelesPrincipales[index].name), document.createTextNode(` ${value}`));
-      line.append(cell);
-    });
-    root.append(line);
-  });
+  const details = el("details", "faq__item");
+  details.append(el("summary", null, "Condiciones generales"));
+  details.append(notes(conditions));
+  root.append(details);
 }
 
 function renderFaq() {
   const root = document.getElementById("faq-list");
   if (!root) return;
-  faqUnificado.forEach((item, index) => {
+  faq.forEach((item, index) => {
     const details = el("details", "faq__item");
     const summary = el("summary", null, item.q);
     summary.id = `faq-q-${index + 1}`;
-    const answer = el("p", null, item.a);
-    details.append(summary, answer);
+    details.append(summary, el("p", null, item.a));
     root.append(details);
   });
 }
 
-function applyPeriod() {
-  const annual = period === "annual";
-  nivelesPrincipales.forEach((plan) => {
-    const amount = document.querySelector(`[data-main-price="${plan.id}"]`);
-    const note = document.querySelector(`[data-main-note="${plan.id}"]`);
-    const setup = document.querySelector(`[data-setup="${plan.id}"]`);
-    const cta = document.querySelector(`[data-plan-cta="${plan.id}"]`);
-    const shown = annual ? Math.round(plan.annualPrice / 12) : plan.monthlyPrice;
-    if (amount) amount.textContent = formatPrice(shown);
-    if (note) {
-      note.hidden = !annual;
-      note.textContent = annual
-        ? `${formatPrice(plan.annualPrice)} /año (equivale a ${formatPriceShort(shown)}/mes)`
-        : "";
-      note.classList.toggle("is-highlight", annual);
-    }
-    if (setup) {
-      const free = plan.setupPrice === 0;
-      setup.textContent = free ? "Setup: $0" : `Setup único: ${formatPrice(plan.setupPrice)}`;
-      setup.classList.toggle("is-free", free);
-    }
-    if (cta) {
-      cta.textContent = planButtonLabel(plan);
-      cta.href = whatsappHref(planMessage(plan.name));
-      cta.target = "_blank";
-      cta.rel = "noopener";
-    }
-  });
-  webIndividual.forEach((service) => {
-    const node = document.querySelector(`[data-web-price="${service.id}"]`);
-    if (!node) return;
-    node.textContent = service.annualPrice == null
-      ? `Anual: ${ANNUAL_UNKNOWN}`
-      : `Anual: ${formatPrice(service.annualPrice)} (2 gratis)`;
-  });
-  const shared = document.getElementById("annual-note");
-  if (shared) shared.textContent = ANNUAL_NOTE;
+if (document.body.classList.contains("price-page")) {
+  renderDiagnosis();
+  renderPackages();
+  renderWeb();
+  renderAutomations();
+  renderMaintenance();
+  renderAddons();
+  renderLicenses();
+  renderConditions();
+  renderFaq();
 }
-
-function initBilling() {
-  const group = document.getElementById("billing-toggle");
-  if (!group) return;
-  const buttons = [...group.querySelectorAll("[role='radio']")];
-  const select = (next) => {
-    period = next;
-    buttons.forEach((button) => {
-      const selected = button.dataset.period === next;
-      button.setAttribute("aria-checked", selected ? "true" : "false");
-      button.tabIndex = selected ? 0 : -1;
-    });
-    applyPeriod();
-    const live = document.getElementById("billing-live");
-    if (live) live.textContent = next === "annual" ? ANNUAL_NOTE : "Precios mensuales.";
-  };
-  buttons.forEach((button) => button.addEventListener("click", () => select(button.dataset.period)));
-  group.addEventListener("keydown", (event) => {
-    const keys = ["ArrowRight", "ArrowDown", "ArrowLeft", "ArrowUp", "Home", "End"];
-    if (!keys.includes(event.key)) return;
-    event.preventDefault();
-    const current = buttons.findIndex((button) => button.getAttribute("aria-checked") === "true");
-    let index = current;
-    if (event.key === "ArrowRight" || event.key === "ArrowDown") index = Math.min(buttons.length - 1, current + 1);
-    if (event.key === "ArrowLeft" || event.key === "ArrowUp") index = Math.max(0, current - 1);
-    if (event.key === "Home") index = 0;
-    if (event.key === "End") index = buttons.length - 1;
-    select(buttons[index].dataset.period);
-    buttons[index].focus();
-  });
-  select("monthly");
-}
-
-renderDiagnosisPrice();
-renderPlans();
-renderCatalog();
-renderLicenses();
-renderCompare();
-renderFaq();
-initBilling();

@@ -45,9 +45,13 @@
   <nav class="price-jump" aria-label="En esta página">
     <div class="container price-jump__row">
       <a href="#diagnostico">Diagnóstico</a>
-      <a href="#niveles">Planes</a>
-      <a href="#servicios-individuales">Servicios sueltos</a>
-      <a href="#adicionales-licencias">Adicionales / Licencias</a>
+      <a href="#paquetes">Paquetes</a>
+      <a href="#web">Web</a>
+      <a href="#automatizaciones">Automatizaciones</a>
+      <a href="#mantenimiento">Mantenimiento</a>
+      <a href="#adicionales">Adicionales</a>
+      <a href="#licencias">Licencias</a>
+      <a href="#condiciones">Condiciones</a>
       <a href="#faq">FAQ</a>
     </div>
   </nav>
@@ -61,7 +65,7 @@
         <p class="dx-hero__price" id="dx-price"></p>
         <div class="price-hero__actions">
           <a class="btn btn--primary btn--glow" data-whatsapp href="#" target="_blank" rel="noopener">Agendar diagnóstico gratis</a>
-          <a class="btn btn--ghost" href="#niveles">Ver precios y planes</a>
+          <a class="btn btn--ghost" href="#paquetes">Ver precios y planes</a>
         </div>
         <ul class="trust trust--checks">
           <li>Sin tarjeta de crédito</li>
@@ -71,61 +75,72 @@
       </div>
     </section>
 
-    <section class="price-block" id="niveles" aria-labelledby="niveles-title">
+    <section class="price-block" id="paquetes" aria-labelledby="paquetes-title">
       <div class="container">
         <header class="section-head section-head--center">
-          <h2 id="niveles-title">Tres niveles. Uno para tu etapa actual.</h2>
-          <p class="lede">Mensualidad sin sorpresas. El setup se paga una sola vez en los tres niveles. <strong id="annual-note">Anual = 10 meses pagas, 12 meses recibes (2 gratis).</strong></p>
+          <h2 id="paquetes-title">Paquetes</h2>
+          <p class="lede">Configuración única y mensualidad, siempre separadas.</p>
         </header>
-        <div class="billing-wrap">
-          <div class="billing billing--light" id="billing-toggle" role="radiogroup" aria-label="Periodo de facturación">
-            <button class="billing__btn" type="button" role="radio" data-period="monthly" aria-checked="true" tabindex="0">Mensual</button>
-            <button class="billing__btn" id="billing-annual" type="button" role="radio" data-period="annual" aria-checked="false" tabindex="-1">Anual <span class="billing__save">2 meses gratis</span></button>
-          </div>
-        </div>
-        <p class="visually-hidden" id="billing-live" aria-live="polite"></p>
+        <p class="launch-note" id="launch-note"></p>
         <div class="pricing__grid" id="plan-grid"></div>
+        <p class="monthly-cover" id="monthly-cover"></p>
         <p class="fine-print">Todos los precios sin IVA (19% se suma en la factura). El setup se paga una sola vez al contratar. La mensualidad se cobra entre el día 1 y el 5 de cada mes. Cancelación: aviso de 15 días, sin penalidad.</p>
       </div>
     </section>
 
-    <section class="price-block price-block--soft" id="comparar" aria-labelledby="comparar-title">
+    <section class="price-block price-block--soft" id="web" aria-labelledby="web-title">
       <div class="container">
-        <h2 id="comparar-title">Qué cambia entre niveles</h2>
-        <div class="compare" id="comparacion"></div>
+        <header class="section-head section-head--center">
+          <h2 id="web-title">Web</h2>
+          <p class="lede">Solo mensualidad, tarifa de lanzamiento.</p>
+        </header>
+        <div id="web-sheet"></div>
       </div>
     </section>
 
-    <section class="price-block price-block--soft" id="servicios-individuales" aria-labelledby="sueltos-title">
+    <section class="price-block" id="automatizaciones" aria-labelledby="auto-title">
       <div class="container">
         <header class="section-head section-head--center">
-          <h2 id="sueltos-title">¿Solo necesitas una cosa?</h2>
-          <p class="lede">Contrata servicios sueltos. <strong>Web = solo mensualidad.</strong> <strong>Automatizaciones, datos y pagos = instalación única.</strong> Si no hay una cuota de mantenimiento publicada, no inventamos una.</p>
+          <h2 id="auto-title">Automatizaciones</h2>
+          <p class="lede">Instalación única. La mensualidad de mantenimiento es opcional.</p>
         </header>
-        <h3 class="group-title">Web (solo mensualidad)</h3>
-        <div class="offer-grid offer-grid--3" id="web-grid"></div>
-        <h3 class="group-title">Automatizaciones (instalación única)</h3>
-        <div class="offer-grid" id="auto-grid"></div>
-        <h3 class="group-title">Datos y pagos</h3>
-        <div class="offer-grid" id="datos-grid"></div>
+        <div id="auto-sheet"></div>
+        <p class="monthly-cover" id="auto-note"></p>
       </div>
     </section>
 
-    <section class="price-block" id="adicionales-licencias" aria-labelledby="extras-title">
+    <section class="price-block price-block--soft" id="mantenimiento" aria-labelledby="care-title">
       <div class="container">
         <header class="section-head section-head--center">
-          <h2 id="extras-title">Adicionales (bajo demanda)</h2>
-          <p class="lede">Solo se contratan si los necesitas. Aquí no hay CRM ni Meta Ads: <a href="https://kommo.com" target="_blank" rel="noopener noreferrer">Kommo</a> o <a href="https://hubspot.com" target="_blank" rel="noopener noreferrer">HubSpot Free</a> para CRM, y aliados de confianza para la pauta.</p>
+          <h2 id="care-title">Mantenimiento opcional de automatizaciones</h2>
+          <p class="lede">Mensual, solo para algo ya construido. No incluye flujos nuevos.</p>
         </header>
-        <div class="offer-grid" id="extras-grid"></div>
+        <div id="care-sheet"></div>
+        <div id="care-notes"></div>
+      </div>
+    </section>
 
-        <header class="section-head section-head--center license-head" id="licencias">
-          <h2>Licencias perpetuas (pago único)</h2>
-          <p class="lede">Te llevas el código, la documentación, los scripts de despliegue y la capacitación. <strong>Tú asumes: VPS, dominios, WhatsApp Meta, IA, base de datos, pagos, backups, actualizaciones y seguridad.</strong> La mensualidad existe para no cargar con eso.</p>
+    <section class="price-block" id="adicionales" aria-labelledby="addon-title">
+      <div class="container">
+        <header class="section-head section-head--center">
+          <h2 id="addon-title">Servicios adicionales</h2>
+          <p class="lede" id="crm-note"></p>
         </header>
-        <div id="license-groups"></div>
+        <div id="addon-sheet"></div>
+        <div id="addon-notes"></div>
+      </div>
+    </section>
+
+    <section class="price-block price-block--soft" id="licencias" aria-labelledby="license-title">
+      <div class="container">
+        <header class="section-head section-head--center">
+          <h2 id="license-title">Licencias</h2>
+          <p class="lede" id="license-intro"></p>
+        </header>
+        <div id="license-sheet"></div>
+        <div class="clear-block" id="license-clear"></div>
         <aside class="warning">
-          <h3>Importante antes de comprar una licencia perpetua</h3>
+          <h3>Importante antes de comprar una licencia</h3>
           <ul>
             <li>No hay soporte, actualizaciones, monitoreo, backups automáticos ni seguridad gestionada.</li>
             <li>Necesitas VPS propio (mínimo Hetzner CX33 $75.000/mes) y nociones básicas de Linux, Docker o Coolify.</li>
@@ -134,16 +149,16 @@
             <li>La mensualidad existe para que no te preocupes de nada de lo anterior.</li>
           </ul>
         </aside>
+        <p class="fine-print" id="license-note"></p>
       </div>
     </section>
 
-    <section class="price-block price-block--soft" id="filosofia" aria-labelledby="filosofia-title">
-      <div class="container">
-        <article class="philosophy">
-          <h2 id="filosofia-title">Somos estudiantes, por eso cuesta menos. No porque valga menos.</h2>
-          <p>Somos un equipo joven de la Sabana de Occidente. Todavía no cargamos la estructura de una agencia grande, y eso se nota en la tarifa.</p>
-          <p>También se nota en cómo hablamos: te decimos qué necesitas y qué no. Si un plan se queda grande, o si un desarrollo suelto alcanza, lo dejamos por escrito antes de cobrar.</p>
-        </article>
+    <section class="price-block" id="condiciones" aria-labelledby="conditions-title">
+      <div class="container faq-wrap">
+        <header class="section-head section-head--center">
+          <h2 id="conditions-title">Condiciones generales</h2>
+        </header>
+        <div class="faq" id="condition-list"></div>
       </div>
     </section>
 
