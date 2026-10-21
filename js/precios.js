@@ -11,7 +11,7 @@ export const diagnostico = {
   gratis: true,
 };
 
-export const launchNotice = "Tarifas de lanzamiento para los primeros 10 clientes fundadores. No se acumulan con otras promociones.";
+export const launchNotice = "Cualquier promoción, incluido el primer mes gratis o pagar 9 meses por 12, aplica solo cuando está escrita en la propuesta de ese cliente.";
 
 const monthlyCover = "Qué cubre la mensualidad: gestión y soporte del servicio contratado, revisión funcional periódica si se indica en la propuesta y pequeños ajustes dentro de un límite acordado por escrito. El mantenimiento solo está incluido cuando la propuesta lo indica. El precio de configuración y el mensual se muestran siempre separados.";
 
@@ -332,7 +332,7 @@ const addons = [
     name: "Alojamiento y soporte de Baserow",
     price: 44900,
     unit: "/mes",
-    includes: ["Supervisión básica de la instancia administrada por OPTIONEXT."],
+    includes: ["Supervisión básica de la instancia administrada por OPTIONEXT. Aplica según la modalidad acordada en la propuesta de ese cliente: Modalidad A (suscripción) o Modalidad B (implementación alojada / llave en mano)."],
     excludes: ["Almacenamiento, copias de seguridad y soporte ilimitados. Se definen en la propuesta."],
   },
   {
@@ -408,8 +408,8 @@ const licenses = [
 const conditions = [
   "El cliente entrega textos, imágenes, logotipos, precios, credenciales y materiales. Los retrasos pueden mover la fecha de publicación.",
   "Cada propuesta indica cuántas rondas de cambios incluye. Una ronda es un conjunto de observaciones entregado en una sola comunicación. Lo que cambie el alcance se cotiza aparte.",
-  "Garantía contractual de 30 días: cubre los defectos que defina el contrato y excluye lo que allí se indique. Es independiente del periodo de revisión acordado.",
-  "Suscripciones, alojamiento, consumo de IA, cargos de WhatsApp o Meta y comisiones de pasarelas se cobran por separado. Si OPTIONEXT los administra, se aclara quién los paga y quién es titular de la cuenta.",
+  "Garantía contractual de 90 días: cubre los defectos que defina el contrato y excluye lo que allí se indique. Es independiente del periodo de revisión acordado.",
+  "Suscripciones, alojamiento, consumo de IA, cargos de WhatsApp o Meta y comisiones de pasarelas se cobran por separado. Si OPTIONEXT administra alojamiento o infraestructura, aplica según la modalidad acordada en la propuesta de ese cliente: Modalidad A (suscripción) o Modalidad B (implementación alojada / llave en mano). No queda incluido en todos los planes. Se aclara quién los paga y quién es titular de la cuenta.",
   "El mantenimiento cubre solo lo descrito en el plan. Nuevas funciones, rediseños e integraciones adicionales requieren aprobación y cotización.",
   "Podemos adaptar la propuesta al presupuesto priorizando funciones, reduciendo el alcance inicial o implementando por etapas. No significa las mismas funciones por menos dinero, y todo cambio se acuerda antes de empezar.",
   launchNotice,
@@ -423,7 +423,7 @@ const faq = [
   },
   {
     q: "¿Qué es la tarifa de lanzamiento?",
-    a: "Tarifas de lanzamiento para los primeros 10 clientes fundadores. No se acumulan con otras promociones. Cuando hay un precio estándar, aparece debajo del de lanzamiento.",
+    a: "Es el precio publicado en grande. Cuando hay un precio estándar, aparece debajo. Cualquier promoción, incluido el primer mes gratis o pagar 9 meses por 12, aplica solo cuando está escrita en la propuesta de ese cliente.",
   },
   {
     q: "¿Qué cubre la mensualidad?",
@@ -435,7 +435,7 @@ const faq = [
   },
   {
     q: "¿Qué cubre la garantía?",
-    a: "Garantía contractual de 30 días, según el contrato. Cubre los defectos que defina el contrato y excluye lo que allí se indique. Es independiente del periodo de revisión acordado.",
+    a: "Garantía contractual de 90 días, según el contrato. Cubre los defectos que defina el contrato y excluye lo que allí se indique. Es independiente del periodo de revisión acordado.",
   },
   {
     q: "¿La web se contrata con mensualidad?",
