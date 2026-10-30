@@ -88,10 +88,10 @@ export function PricesPage() {
 
   return (
     <main id="contenido" className="pt-28">
-      <section id="diagnostico" className="hero-wash px-4 py-16" aria-labelledby="dx-title">
+      <section id="diagnostico" className="band band-deep px-4 py-16" aria-labelledby="dx-title">
         <div className="mx-auto max-w-3xl">
           <p className="eyebrow">Disponible esta semana: 3 cupos</p>
-          <h1 id="dx-title" className="section-title">Primero entendemos tu negocio, después decidimos qué tecnología sirve</h1>
+          <h1 id="dx-title" className="section-title">Primero entendemos tu negocio, después decidimos qué <span className="grad">tecnología</span> sirve</h1>
           <p className="mt-4 text-lg text-[#d6d1e8]">30-45 min. Presencial en Sabana Occidente o virtual. Sin compromiso. Te entregamos un documento de una página con 3 problemas detectados, una oportunidad rápida y una recomendación honesta.</p>
           <p className="font-display mt-4 text-3xl font-bold text-white">{diagnostico.gratis ? `Gratis · ${formatMoney(diagnostico.price)}` : formatMoney(diagnostico.price)}</p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
@@ -106,16 +106,16 @@ export function PricesPage() {
         </div>
       </section>
 
-      <section id="paquetes" className="scroll-mt-24 px-4 py-16" aria-labelledby="paquetes-title">
+      <section id="paquetes" className="band band-lift scroll-mt-24 px-4 py-16" aria-labelledby="paquetes-title">
         <div className="mx-auto max-w-[1120px]">
           <Reveal>
-            <h2 id="paquetes-title" className="section-title text-center">Paquetes</h2>
+            <h2 id="paquetes-title" className="section-title text-center"><span className="grad">Paquetes</span></h2>
             <p className="mt-3 text-center text-lg text-[#d6d1e8]">Configuración única y mensualidad, siempre separadas.</p>
             <p className="mx-auto mt-4 max-w-3xl text-[#d6d1e8]">{launchNotice}</p>
           </Reveal>
-          <div className="mt-8 grid gap-4 lg:grid-cols-3">
+          <div className="sheets mt-8 grid gap-4 lg:grid-cols-3">
             {paquetes.map((plan) => (
-              <article key={plan.id} id={plan.id} className={`scroll-mt-28 rounded-[24px] border p-6 ${plan.recommended ? "border-[#6c3ce0] bg-[#1a1430]" : "border-white/10 bg-[#14182c]"}`}>
+              <article key={plan.id} id={plan.id} className={`sheet scroll-mt-28 p-6 ${plan.recommended ? "sheet-hot" : ""}`}>
                 {plan.recommended ? <p className="mb-2 text-xs font-bold text-[#efe8ff]">Recomendado</p> : null}
                 <h3 className="font-display text-2xl font-semibold text-white">{plan.name}</h3>
                 <p className="text-[#d6d1e8]">{plan.label}</p>
@@ -135,19 +135,19 @@ export function PricesPage() {
         </div>
       </section>
 
-      <SheetSection id="web" title="Web" lede="Solo mensualidad, tarifa de lanzamiento." items={web} price={(item) => <Dual pair={item.monthly} unit="/mes" />} />
-      <SheetSection id="automatizaciones" title="Automatizaciones" lede="Instalación única. La mensualidad de mantenimiento es opcional." items={automations} price={(item) => <Dual pair={item.setup} />} note={stepNote} />
-      <SheetSection id="mantenimiento" title="Mantenimiento opcional de automatizaciones" lede="Mensual, solo para algo ya construido. No incluye flujos nuevos." items={maintenance} price={(item) => <Dual pair={item.monthly} unit="/mes" />} notes={maintenanceNotes} />
+      <SheetSection id="web" band="band-color" title="Web" lede="Solo mensualidad, tarifa de lanzamiento." items={web} price={(item) => <Dual pair={item.monthly} unit="/mes" />} />
+      <SheetSection id="automatizaciones" band="band-deep" title="Automatizaciones" lede="Instalación única. La mensualidad de mantenimiento es opcional." items={automations} price={(item) => <Dual pair={item.setup} />} note={stepNote} />
+      <SheetSection id="mantenimiento" band="band-warm" title="Mantenimiento opcional de automatizaciones" lede="Mensual, solo para algo ya construido. No incluye flujos nuevos." items={maintenance} price={(item) => <Dual pair={item.monthly} unit="/mes" />} notes={maintenanceNotes} />
 
-      <section id="adicionales" className="scroll-mt-24 px-4 py-16" aria-labelledby="addon-title">
+      <section id="adicionales" className="band band-lift scroll-mt-24 px-4 py-16" aria-labelledby="addon-title">
         <div className="mx-auto max-w-[1120px]">
           <h2 id="addon-title" className="section-title text-center">Servicios adicionales</h2>
           <p className="mt-3 text-center text-[#d6d1e8]">
             Para CRM recomendamos <a className="text-[#efe8ff]" href="https://kommo.com" target="_blank" rel="noopener noreferrer">Kommo</a> o <a className="text-[#efe8ff]" href="https://www.hubspot.com" target="_blank" rel="noopener noreferrer">HubSpot Free</a>.
           </p>
-          <div className="mt-8 space-y-4">
+          <div className="sheets mt-8 space-y-4">
             {addons.map((item) => (
-              <article key={item.name} className="rounded-[20px] border border-white/10 bg-[#14182c] p-5">
+              <article key={item.name} className="sheet p-5">
                 <h3 className="font-display text-xl font-semibold text-white">{item.name}</h3>
                 <p className="mt-2 text-white">
                   <strong>{item.from ? `desde ${formatMoney(item.price)}` : formatMoney(item.price)}</strong>
@@ -161,13 +161,13 @@ export function PricesPage() {
         </div>
       </section>
 
-      <section id="licencias" className="scroll-mt-24 px-4 py-16" aria-labelledby="license-title">
+      <section id="licencias" className="band band-deep scroll-mt-24 px-4 py-16" aria-labelledby="license-title">
         <div className="mx-auto max-w-[1120px]">
           <h2 id="license-title" className="section-title text-center">Licencias</h2>
           <p className="mx-auto mt-3 max-w-3xl text-center text-[#d6d1e8]">{licenseIntro}</p>
-          <div className="mt-8 space-y-4">
+          <div className="sheets mt-8 space-y-4">
             {licenses.map((item) => (
-              <article key={item.name} className="rounded-[20px] border border-white/10 bg-[#14182c] p-5">
+              <article key={item.name} className="sheet p-5">
                 <h3 className="font-display text-xl font-semibold text-white">{item.name}</h3>
                 <p className="mt-2 font-bold text-white">{formatMoney(item.price)}</p>
                 <Scope item={item} quote />
@@ -176,7 +176,7 @@ export function PricesPage() {
           </div>
           <h3 className="font-display mt-8 text-xl font-semibold text-white">Qué debe quedar claro</h3>
           <ul className="mt-3 list-disc space-y-2 pl-5 text-[#d6d1e8]">{licenseClear.map((line) => <li key={line}>{line}</li>)}</ul>
-          <aside className="mt-8 rounded-[20px] border border-[#6c3ce0]/40 bg-[#1a1430] p-5">
+          <aside className="sheet sheet-hot mt-8 p-5">
             <h3 className="font-display text-xl font-semibold text-white">Importante antes de comprar una licencia</h3>
             <ul className="mt-3 list-disc space-y-2 pl-5 text-[#d6d1e8]">
               <li>No hay soporte, actualizaciones, monitoreo, backups automáticos ni seguridad gestionada.</li>
@@ -190,23 +190,23 @@ export function PricesPage() {
         </div>
       </section>
 
-      <section id="condiciones" className="scroll-mt-24 px-4 py-16" aria-labelledby="conditions-title">
+      <section id="condiciones" className="band band-color scroll-mt-24 px-4 py-16" aria-labelledby="conditions-title">
         <div className="mx-auto max-w-3xl">
           <h2 id="conditions-title" className="section-title text-center">Condiciones generales</h2>
-          <details className="mt-6 rounded-[20px] border border-white/10 bg-[#14182c] p-5" open>
+          <details className="sheet mt-6 p-5" open>
             <summary className="cursor-pointer font-semibold text-white">Condiciones generales</summary>
             <ul className="mt-3 list-disc space-y-2 pl-5 text-[#d6d1e8]">{conditions.map((line) => <li key={line}>{line}</li>)}</ul>
           </details>
         </div>
       </section>
 
-      <section id="faq" className="scroll-mt-24 px-4 py-16" aria-labelledby="faq-title">
+      <section id="faq" className="band band-warm scroll-mt-24 px-4 py-16" aria-labelledby="faq-title">
         <div className="mx-auto max-w-3xl">
           <h2 id="faq-title" className="section-title text-center">Preguntas frecuentes</h2>
           <p className="mt-3 text-center text-[#d6d1e8]">Respuestas honestas, sin letra chica.</p>
-          <div className="mt-6 space-y-3">
+          <div className="sheets mt-6 space-y-3">
             {faq.map((item) => (
-              <details key={item.q} className="rounded-[20px] border border-white/10 bg-[#14182c] p-5">
+              <details key={item.q} className="sheet p-5">
                 <summary className="cursor-pointer font-semibold text-white">{item.q}</summary>
                 <p className="mt-3 text-[#d6d1e8]">{item.a}</p>
               </details>
@@ -215,9 +215,9 @@ export function PricesPage() {
         </div>
       </section>
 
-      <section className="px-4 py-16" aria-labelledby="cierre-title">
+      <section className="band band-lift px-4 py-16" aria-labelledby="cierre-title">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 id="cierre-title" className="section-title">¿Listo para empezar? El diagnóstico es gratis.</h2>
+          <h2 id="cierre-title" className="section-title">¿Listo para empezar? El <span className="grad">diagnóstico</span> es gratis.</h2>
           <p className="mt-4 text-lg text-[#d6d1e8]">30 minutos. 3 problemas detectados. 1 oportunidad rápida. 0 compromiso.</p>
           <a className="btn-primary mt-6" href={appHref("/#contacto")}>Agenda un diagnóstico</a>
         </div>
@@ -228,6 +228,7 @@ export function PricesPage() {
 
 function SheetSection<T extends ScopeItem>({
   id,
+  band,
   title,
   lede,
   items,
@@ -236,6 +237,7 @@ function SheetSection<T extends ScopeItem>({
   notes,
 }: {
   id: string
+  band: string
   title: string
   lede: string
   items: T[]
@@ -244,13 +246,13 @@ function SheetSection<T extends ScopeItem>({
   notes?: string[]
 }) {
   return (
-    <section id={id} className="scroll-mt-24 px-4 py-16" aria-labelledby={`${id}-title`}>
+    <section id={id} className={`band ${band} scroll-mt-24 px-4 py-16`} aria-labelledby={`${id}-title`}>
       <div className="mx-auto max-w-[1120px]">
-        <h2 id={`${id}-title`} className="section-title text-center">{title}</h2>
+        <h2 id={`${id}-title`} className="section-title text-center"><span className="grad">{title}</span></h2>
         <p className="mt-3 text-center text-lg text-[#d6d1e8]">{lede}</p>
-        <div className="mt-8 space-y-4">
+        <div className="sheets mt-8 space-y-4">
           {items.map((item) => (
-            <article key={item.name} className="rounded-[20px] border border-white/10 bg-[#14182c] p-5">
+            <article key={item.name} className="sheet p-5">
               <h3 className="font-display text-xl font-semibold text-white">{item.name}</h3>
               {item.label ? <p className="text-[#d6d1e8]">{item.label}</p> : null}
               <div className="mt-3">{price(item)}</div>

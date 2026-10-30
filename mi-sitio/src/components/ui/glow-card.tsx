@@ -1,12 +1,13 @@
 import { useEffect, useState, type FocusEvent, type PointerEvent, type ReactNode } from "react"
 import { cn } from "@/lib/utils"
 
-/** Brand purple #4B2E9E, plus violet and indigo. Other hues are punctual accents. */
+/** Brand #4B2E9E. Magenta and amber are the warm accents; violet stays as a cool neighbor. */
 export const ACCENTS = {
   brand: "75, 46, 158",
   violet: "139, 92, 246",
   indigo: "99, 102, 241",
-  fuchsia: "232, 121, 249",
+  magenta: "217, 70, 239",
+  fuchsia: "217, 70, 239",
   cyan: "34, 211, 238",
   emerald: "52, 211, 153",
   amber: "251, 191, 36",
@@ -145,13 +146,21 @@ export function GlowCard({
       }}
       className={cn("relative rounded-3xl", className)}
     >
-      <div aria-hidden="true" className="absolute inset-0 rounded-3xl bg-white/10" />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 rounded-3xl"
+        style={{ background: `linear-gradient(145deg, rgba(${rgb}, 0.95), rgba(251, 191, 36, 0.5) 62%, rgba(217, 70, 239, 0.72))` }}
+      />
       <div
         aria-hidden="true"
         className={cn("absolute inset-0 rounded-3xl transition-opacity duration-500", lit ? "opacity-100" : "opacity-0")}
         style={{ background: `radial-gradient(240px circle at ${point.x}px ${point.y}px, rgba(${rgb}, 0.95), transparent 70%)` }}
       />
-      <div aria-hidden="true" className="absolute inset-px overflow-hidden rounded-[23px] bg-[#0b0d15]">
+      <div
+        aria-hidden="true"
+        className="absolute inset-px overflow-hidden rounded-[23px]"
+        style={{ background: `linear-gradient(168deg, rgba(${rgb}, 0.62) 0%, rgba(48, 32, 108, 0.94) 46%, rgba(26, 20, 64, 0.97) 100%)` }}
+      >
         <div
           className={cn("absolute inset-0 transition-opacity duration-500", lit ? "opacity-100" : "opacity-0")}
           style={{ background: `radial-gradient(380px circle at ${point.x}px ${point.y}px, rgba(${rgb}, 0.14), transparent 65%)` }}
@@ -230,7 +239,7 @@ export function TypingLog({ lines, label }: { lines: TerminalLine[]; label: stri
     <div
       role="log"
       aria-label={label}
-      className="flex flex-1 flex-col justify-end gap-1.5 overflow-hidden rounded-xl border border-white/5 bg-black/30 p-4 font-mono text-xs leading-relaxed"
+      className="flex flex-1 flex-col justify-end gap-1.5 overflow-hidden rounded-xl border border-white/10 bg-[#241848]/55 p-4 font-mono text-xs leading-relaxed"
     >
       {visible.map((line, index) => {
         const current = index === visible.length - 1 && shown < lines.length

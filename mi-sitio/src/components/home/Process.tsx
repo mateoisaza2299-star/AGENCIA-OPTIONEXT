@@ -14,15 +14,15 @@ const lines: TerminalLine[] = [
 
 export function Process() {
   return (
-    <section id="proceso" className="scroll-mt-24 px-4 py-16" aria-labelledby="proceso-title">
+    <section id="proceso" className="band band-warm scroll-mt-24 px-4 py-16" aria-labelledby="proceso-title">
       <div className="mx-auto w-full max-w-[1120px]">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="eyebrow">Cómo trabajamos</p>
-          <h2 id="proceso-title" className="section-title">Cuatro pasos, del diagnóstico al soporte.</h2>
+          <h2 id="proceso-title" className="section-title">Cuatro pasos, del <span className="grad">diagnóstico</span> al soporte.</h2>
           <p className="mt-4 text-lg text-[#d6d1e8]">Un recorrido corto. Sin entregarte una herramienta que nadie pidió y sin dejarte solo cuando ya está en marcha.</p>
         </Reveal>
         <Reveal className="mx-auto mt-10 max-w-3xl">
-          <GlowCard accent="violet" className="min-h-[340px]">
+          <GlowCard accent="magenta" className="min-h-[340px]">
             <CardTitle
               right={
                 <span className="flex items-center gap-1.5" aria-hidden="true">

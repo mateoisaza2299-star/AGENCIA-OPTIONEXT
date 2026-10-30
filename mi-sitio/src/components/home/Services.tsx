@@ -19,24 +19,24 @@ const services: { title: string; text: string; accent: Accent; icon: typeof Moni
   {
     title: "Automatizaciones con n8n",
     text: "Conectamos lo que hoy se copia a mano: del chat a la hoja, del formulario al recordatorio, del pago al comprobante.",
-    accent: "indigo",
+    accent: "magenta",
     icon: Workflow,
   },
   {
     title: "Soluciones con Inteligencia Artificial",
     text: "Cuando el diagnóstico lo pide, la IA clasifica, resume o responde. Siempre sobre una tarea concreta del negocio, nunca como adorno.",
-    accent: "fuchsia",
+    accent: "amber",
     icon: Sparkles,
   },
 ]
 
 export function Services() {
   return (
-    <section id="servicios" className="scroll-mt-24 px-4 py-16" aria-labelledby="servicios-title">
+    <section id="servicios" className="band band-deep scroll-mt-24 px-4 py-16" aria-labelledby="servicios-title">
       <div className="mx-auto w-full max-w-[1120px]">
         <Reveal className="max-w-2xl">
           <p className="eyebrow">Servicios</p>
-          <h2 id="servicios-title" className="section-title">Lo que implementamos, después de entender.</h2>
+          <h2 id="servicios-title" className="section-title">Lo que implementamos, después de <span className="grad">entender</span>.</h2>
           <p className="mt-4 text-lg text-[#d6d1e8]">No son productos sueltos. Son las piezas con las que armamos la solución cuando el diagnóstico ya encontró el problema.</p>
         </Reveal>
         <div className="mt-8 grid gap-4 sm:grid-cols-2">

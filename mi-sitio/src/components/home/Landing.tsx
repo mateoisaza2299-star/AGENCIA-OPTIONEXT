@@ -20,7 +20,7 @@ export function Landing() {
       <Process />
       <Testimonials />
       <Contact />
-      <a className="fixed right-4 bottom-4 z-40 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#4b2e9e] text-white shadow-lg" href={whatsappHref()} target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp">
+      <a className="btn-primary float-wa fixed right-4 bottom-4 z-40" href={whatsappHref()} target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp">
         <MessageCircle aria-hidden="true" />
       </a>
     </main>

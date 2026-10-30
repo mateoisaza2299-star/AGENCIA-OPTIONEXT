@@ -51,11 +51,11 @@ export function Contact() {
   }
 
   return (
-    <section id="contacto" className="scroll-mt-24 px-4 py-16" aria-labelledby="contacto-title">
+    <section id="contacto" className="band band-deep scroll-mt-24 px-4 py-16" aria-labelledby="contacto-title">
       <div className="mx-auto grid w-full max-w-[1120px] gap-10 lg:grid-cols-2">
         <Reveal>
           <p className="eyebrow">Contacto</p>
-          <h2 id="contacto-title" className="section-title">Agenda un diagnóstico.</h2>
+          <h2 id="contacto-title" className="section-title">Agenda un <span className="grad">diagnóstico</span>.</h2>
           <p className="mt-4 text-lg text-[#d6d1e8]">Cuéntanos cómo atiendes, cobras y entregas. En la primera conversación buscamos el problema. No te empujamos un paquete.</p>
           <ul className="mt-5 space-y-2 text-[#d6d1e8]">
             <li>Diagnóstico gratuito, para ver si hay algo que valga la pena construir.</li>
