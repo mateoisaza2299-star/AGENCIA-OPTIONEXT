@@ -1,13 +1,13 @@
 import { Menu, X } from "lucide-react"
 import { useEffect, useId, useState } from "react"
 import logo from "@/assets/optionext-logo.webp"
-import { DIAGNOSIS_MESSAGE, whatsappHref } from "@/config"
+import { DIAGNOSIS_MESSAGE, PRECIOS_URL, whatsappHref } from "@/config"
 import { appHref } from "@/lib/path"
 
 const links = [
   { href: "/#nosotros", label: "Nosotros" },
   { href: "/#servicios", label: "Servicios" },
-  { href: "/precios", label: "Precios" },
+  { href: PRECIOS_URL, label: "Precios" },
   { href: "/#proceso", label: "Proceso" },
   { href: "/#contacto", label: "Contacto" },
 ]
@@ -26,7 +26,7 @@ export function Header() {
   }, [open])
 
   return (
-    <header className="fixed inset-x-0 top-0 z-40 border-b border-white/10 bg-[#0c1020]/90 backdrop-blur-md">
+    <header className="fixed inset-x-0 top-0 z-40 border-b border-white/10 bg-[#07080d]/80 backdrop-blur-md">
       <a className="skip" href="#contenido">
         Saltar al contenido
       </a>
@@ -47,14 +47,14 @@ export function Header() {
           {open ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
         </button>
 
-        <div className={`${open ? "flex" : "hidden"} absolute inset-x-0 top-[76px] flex-col gap-4 border-b border-white/10 bg-[#0c1020] px-4 py-5 md:static md:flex md:flex-row md:items-center md:gap-6 md:border-0 md:bg-transparent md:p-0`} id={panelId}>
+        <div className={`${open ? "flex" : "hidden"} absolute inset-x-0 top-[76px] flex-col gap-4 border-b border-white/10 bg-[#07080d] px-4 py-5 md:static md:flex md:flex-row md:items-center md:gap-6 md:border-0 md:bg-transparent md:p-0`} id={panelId}>
           <nav aria-label="Principal">
             <ul className="flex flex-col gap-3 md:flex-row md:gap-5">
               {links.map((link) => (
                 <li key={link.href}>
                   <a
                     className="font-display text-sm font-medium text-[#f4f2fb] no-underline hover:text-white"
-                    href={appHref(link.href)}
+                    href={link.href.startsWith("http") ? link.href : appHref(link.href)}
                     onClick={() => setOpen(false)}
                   >
                     {link.label}

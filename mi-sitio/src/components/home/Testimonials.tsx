@@ -1,4 +1,5 @@
-import { HoverLift, Reveal } from "@/components/motion/Reveal"
+import { Reveal } from "@/components/motion/Reveal"
+import { GlowCard } from "@/components/ui/glow-card"
 
 const quotes = [
   ["Llegamos pidiendo un bot y nos pararon. El problema era que los domicilios se perdían en el chat. El bot salió de ese diagnóstico, no de un catálogo.", "Tienda de barrio · Madrid, Cundinamarca"],
@@ -19,14 +20,14 @@ export function Testimonials() {
         <div className="mt-8 grid gap-4 lg:grid-cols-3">
           {quotes.map(([text, meta]) => (
             <Reveal key={meta}>
-              <HoverLift className="h-full">
-                <figure className="flex h-full flex-col rounded-[24px] border border-white/10 bg-[#14182c] p-6">
+              <GlowCard accent="brand" className="h-full">
+                <figure className="flex h-full flex-col">
                   <blockquote>
                     <p className="text-[#f4f2fb]">{text}</p>
                   </blockquote>
                   <figcaption className="mt-4 text-sm text-[#d6d1e8]">Ejemplo · {meta}</figcaption>
                 </figure>
-              </HoverLift>
+              </GlowCard>
             </Reveal>
           ))}
         </div>

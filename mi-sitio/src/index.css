@@ -30,7 +30,7 @@
   --color-brand: #4b2e9e;
   --color-ink: #f4f2fb;
   --color-muted: #d6d1e8;
-  --color-night: #0c1020;
+  --color-night: #07080d;
 }
 
 html {
@@ -39,7 +39,7 @@ html {
 
 body {
   margin: 0;
-  background: #0c1020;
+  background: #07080d;
   color: #f4f2fb;
   font-family: var(--font-sans);
   overflow-x: clip;
@@ -76,9 +76,9 @@ img {
 
 .hero-wash {
   background:
-    radial-gradient(ellipse 70% 50% at 85% 0%, rgba(75, 46, 158, 0.38), transparent 62%),
-    radial-gradient(ellipse 45% 40% at 8% 90%, rgba(108, 60, 224, 0.2), transparent 60%),
-    #0c1020;
+    radial-gradient(ellipse 55% 42% at 88% 0%, rgba(75, 46, 158, 0.22), transparent 68%),
+    radial-gradient(ellipse 40% 36% at 6% 100%, rgba(99, 102, 241, 0.12), transparent 70%),
+    #07080d;
 }
 
 .btn-primary,
@@ -114,7 +114,7 @@ img {
   box-sizing: border-box;
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 14px;
-  background: #0c1020;
+  background: #07080d;
   color: #f4f2fb;
   font: inherit;
   padding: 0.8rem 0.9rem;

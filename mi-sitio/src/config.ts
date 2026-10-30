@@ -13,6 +13,9 @@ export const FACEBOOK_URL = "PENDIENTE"
 /** PENDIENTE: perfil de LinkedIn. La página actual no publica una URL. */
 export const LINKEDIN_URL = "PENDIENTE"
 
+/** Página de precios ya publicada. No está migrada a esta app. */
+export const PRECIOS_URL = "https://mateoisaza2299-star.github.io/AGENCIA-OPTIONEXT/precios.html"
+
 export const CONTACT_EMAIL = "mateoisaza2299@gmail.com"
 export const EMAIL_SUBJECT = "Quiero agendar un diagnóstico"
 export const DIAGNOSIS_MESSAGE = "Hola, quiero agendar un diagnóstico gratis para mi negocio."

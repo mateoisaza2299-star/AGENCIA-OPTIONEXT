@@ -1,6 +1,7 @@
 import logo from "@/assets/optionext-logo.webp"
 import {
   CONTACT_EMAIL,
+  PRECIOS_URL,
   FACEBOOK_URL,
   INSTAGRAM_URL,
   LINKEDIN_URL,
@@ -15,7 +16,7 @@ import { appHref } from "@/lib/path"
 const map = [
   ["/#nosotros", "Sobre nosotros"],
   ["/#servicios", "Servicios"],
-  ["/precios", "Precios"],
+  [PRECIOS_URL, "Precios"],
   ["/#proceso", "Cómo trabajamos"],
   ["/#testimonios", "Testimonios"],
   ["/#contacto", "Contacto"],
@@ -29,7 +30,7 @@ const socials = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-[#090c18]">
+    <footer className="border-t border-white/10 bg-[#07080d]">
       <div className="mx-auto grid w-full max-w-[1120px] gap-10 px-4 py-12 md:grid-cols-3">
         <div>
           <a className="flex items-center gap-3 no-underline" href={appHref("/#inicio")}>
@@ -43,7 +44,7 @@ export function Footer() {
           <ul className="mt-4 space-y-2">
             {map.map(([href, label]) => (
               <li key={href}>
-                <a className="text-[#d6d1e8] no-underline hover:text-white" href={appHref(href)}>
+                <a className="text-[#d6d1e8] no-underline hover:text-white" href={href.startsWith("http") ? href : appHref(href)}>
                   {label}
                 </a>
               </li>

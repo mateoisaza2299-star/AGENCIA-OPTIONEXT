@@ -2,6 +2,7 @@ import { motion, useReducedMotion } from "motion/react"
 import { useState } from "react"
 import type { FormEvent } from "react"
 import { Reveal } from "@/components/motion/Reveal"
+import { GlowCard } from "@/components/ui/glow-card"
 import { CONTACT_EMAIL, PHONE_DISPLAY, PHONE_TEL, isPending, mailtoHref, whatsappHref } from "@/config"
 
 const messages: Record<string, string> = {
@@ -81,7 +82,7 @@ export function Contact() {
           </p>
         </Reveal>
         <Reveal>
-          <div className="rounded-[24px] border border-white/10 bg-[#14182c] p-6">
+          <GlowCard accent="brand" className="h-full">
             {ready ? (
               <div role="status" tabIndex={-1}>
                 <h3 className="font-display text-2xl font-semibold text-white">{fields.nombre.trim() ? `Listo, ${fields.nombre.trim()}.` : "Listo"}</h3>
@@ -101,7 +102,7 @@ export function Contact() {
                 <button className="btn-primary mt-5 w-full" type="submit">Agendar diagnóstico</button>
               </form>
             )}
-          </div>
+          </GlowCard>
         </Reveal>
       </div>
     </section>
