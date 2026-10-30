@@ -1,10 +1,147 @@
 @import "tailwindcss";
 
-html,
-body,
-#root {
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("./assets/fonts/open-sans-400.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("./assets/fonts/poppins-600.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("./assets/fonts/poppins-700.woff2") format("woff2");
+}
+
+@theme {
+  --font-sans: "Open Sans", "Segoe UI", sans-serif;
+  --font-display: Poppins, "Segoe UI", sans-serif;
+  --color-brand: #4b2e9e;
+  --color-ink: #f4f2fb;
+  --color-muted: #d6d1e8;
+  --color-night: #0c1020;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
   margin: 0;
-  min-height: 100%;
-  background: #05070b;
-  font-family: system-ui, "Segoe UI", Roboto, sans-serif;
+  background: #0c1020;
+  color: #f4f2fb;
+  font-family: var(--font-sans);
+  overflow-x: clip;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.eyebrow {
+  margin: 0;
+  color: #efe8ff;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.section-title {
+  margin: 0.4rem 0 0;
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 3vw, 2.7rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.12;
+}
+
+.hero-wash {
+  background:
+    radial-gradient(ellipse 70% 50% at 85% 0%, rgba(75, 46, 158, 0.38), transparent 62%),
+    radial-gradient(ellipse 45% 40% at 8% 90%, rgba(108, 60, 224, 0.2), transparent 60%),
+    #0c1020;
+}
+
+.btn-primary,
+.btn-ghost {
+  display: inline-flex;
+  min-height: 48px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.75rem 1.2rem;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.btn-primary {
+  border: 0;
+  background: #4b2e9e;
+  color: #fff;
+}
+
+.btn-ghost {
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: transparent;
+  color: #fff;
+}
+
+.field {
+  width: 100%;
+  margin-top: 0.35rem;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 14px;
+  background: #0c1020;
+  color: #f4f2fb;
+  font: inherit;
+  padding: 0.8rem 0.9rem;
+}
+
+.skip {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 50;
+  border-radius: 999px;
+  background: #fff;
+  color: #0c1020;
+  padding: 0.6rem 1rem;
+}
+
+.skip:focus {
+  top: 0.6rem;
+}
+
+:focus-visible {
+  outline: 2px solid #efe8ff;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
