@@ -11,6 +11,7 @@ export const ACCENTS = {
   cyan: "34, 211, 238",
   emerald: "52, 211, 153",
   amber: "251, 191, 36",
+  champagne: "231, 211, 168",
 } as const
 
 export type Accent = keyof typeof ACCENTS

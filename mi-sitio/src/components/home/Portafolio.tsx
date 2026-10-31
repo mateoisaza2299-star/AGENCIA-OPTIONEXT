@@ -3,7 +3,7 @@ import { useState, type PointerEvent, type ReactNode } from "react"
 import { GlowCard, type Accent } from "@/components/ui/glow-card"
 import { MEDIDA_ESCRITORIO, MEDIDA_MOVIL, portafolio, type Portadas, type SitioPortafolio } from "@/data/portafolio"
 
-const acentos: Accent[] = ["brand", "violet", "magenta", "amber", "cyan", "emerald", "indigo"]
+const acentos: Accent[] = ["brand", "violet", "champagne", "amber", "cyan", "emerald", "indigo"]
 
 type SitioPublicado = SitioPortafolio & { url: string; portadas: Portadas }
 

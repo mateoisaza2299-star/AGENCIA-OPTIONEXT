@@ -36,13 +36,13 @@ export const portafolio: SitioPortafolio[] = [
     },
   },
   {
-    slug: "droguerias-reina",
-    nombre: "Droguerías Reina",
-    tipo: "Droguería en Funza",
-    url: "https://mateoisaza2299-star.github.io/Farmacias-Reina/",
+    slug: "joyeria",
+    nombre: "MAISON",
+    tipo: "Joyería",
+    url: "https://mateoisaza2299-star.github.io/Oro-Express/#inicio",
     portadas: {
-      escritorio: "droguerias-reina-desktop.webp",
-      movil: "droguerias-reina-mobile.webp",
+      escritorio: "joyeria-desktop.webp",
+      movil: "joyeria-mobile.webp",
     },
   },
   {
