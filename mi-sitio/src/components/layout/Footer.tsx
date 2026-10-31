@@ -15,6 +15,7 @@ import { appHref } from "@/lib/path"
 const map = [
   ["/#nosotros", "Sobre nosotros"],
   ["/#servicios", "Servicios"],
+  ["/#portafolio", "Portafolio"],
   ["/precios", "Precios"],
   ["/#proceso", "Cómo trabajamos"],
   ["/#testimonios", "Testimonios"],

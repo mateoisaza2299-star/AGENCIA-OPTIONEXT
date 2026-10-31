@@ -3,6 +3,7 @@ import { About } from "@/components/home/About"
 import { Contact } from "@/components/home/Contact"
 import { Hero } from "@/components/home/Hero"
 import { Plans } from "@/components/home/Plans"
+import { Portafolio } from "@/components/home/Portafolio"
 import { Problems } from "@/components/home/Problems"
 import { Process } from "@/components/home/Process"
 import { Services } from "@/components/home/Services"
@@ -16,6 +17,7 @@ export function Landing() {
       <Problems />
       <About />
       <Services />
+      <Portafolio />
       <Plans />
       <Process />
       <Testimonials />

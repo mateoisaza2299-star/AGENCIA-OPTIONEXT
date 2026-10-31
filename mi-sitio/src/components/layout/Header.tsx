@@ -8,6 +8,7 @@ import { useRouter } from "@/lib/router"
 const links = [
   { href: "/#nosotros", label: "Nosotros" },
   { href: "/#servicios", label: "Servicios" },
+  { href: "/#portafolio", label: "Portafolio" },
   { href: "/precios", label: "Precios" },
   { href: "/#proceso", label: "Proceso" },
   { href: "/#contacto", label: "Contacto" },
