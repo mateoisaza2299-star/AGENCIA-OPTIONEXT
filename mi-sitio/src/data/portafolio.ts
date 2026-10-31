@@ -55,25 +55,4 @@ export const portafolio: SitioPortafolio[] = [
       movil: "casa-lumbre-mobile.webp",
     },
   },
-  {
-    slug: "pupilos-barber",
-    nombre: "Pupilos Barber",
-    tipo: "Barbería",
-    url: null,
-    portadas: null,
-  },
-  {
-    slug: "duban-barberia",
-    nombre: "Duban Barbería",
-    tipo: "Barbería",
-    url: null,
-    portadas: null,
-  },
-  {
-    slug: "rich-barbery",
-    nombre: "Rich Barbery",
-    tipo: "Barbería",
-    url: null,
-    portadas: null,
-  },
 ]
