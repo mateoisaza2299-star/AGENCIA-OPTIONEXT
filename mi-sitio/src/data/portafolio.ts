@@ -51,8 +51,8 @@ export const portafolio: SitioPortafolio[] = [
     tipo: "Restaurante en Medellín",
     url: "https://mateoisaza2299-star.github.io/Restaurante-beta/",
     portadas: {
-      escritorio: "casa-lumbre-desktop.webp",
-      movil: "casa-lumbre-mobile.webp",
+      escritorio: "casa-lumbre-desktop-v2.webp",
+      movil: "casa-lumbre-mobile-v2.webp",
     },
   },
 ]
