@@ -1,10 +1,8 @@
-import { motion, useReducedMotion } from "motion/react"
 import { SectionGlow } from "@/components/ui/glow-card"
 import { DIAGNOSIS_MESSAGE, whatsappHref } from "@/config"
 import { appHref } from "@/lib/path"
 
 export function Hero() {
-  const reduce = useReducedMotion()
   return (
     <section id="inicio" className="band band-deep relative pt-28" aria-labelledby="hero-title">
       <SectionGlow>
@@ -17,26 +15,12 @@ export function Hero() {
             Acompañamos a MIPYMES y negocios locales. Entendemos cómo trabaja tu operación y recién ahí implementamos el sitio, el bot de WhatsApp, la automatización o la inteligencia artificial que hace falta.
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-            <motion.a
-              className="btn-primary"
-              href={whatsappHref(DIAGNOSIS_MESSAGE)}
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={reduce ? undefined : { scale: 1.03 }}
-              whileTap={reduce ? undefined : { scale: 0.98 }}
-              transition={{ duration: 0.2 }}
-            >
+            <a className="btn-primary" href={whatsappHref(DIAGNOSIS_MESSAGE)} target="_blank" rel="noopener noreferrer">
               Agenda un diagnóstico
-            </motion.a>
-            <motion.a
-              className="btn-ghost"
-              href={appHref("/precios")}
-              whileHover={reduce ? undefined : { scale: 1.03 }}
-              whileTap={reduce ? undefined : { scale: 0.98 }}
-              transition={{ duration: 0.2 }}
-            >
+            </a>
+            <a className="btn-ghost" href={appHref("/precios")}>
               Ver precios
-            </motion.a>
+            </a>
           </div>
           <p className="mt-5 text-sm font-semibold text-[#efe8ff]">Garantía contractual de 90 días, según el contrato.</p>
         </div>

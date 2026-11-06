@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react"
 import { GlowCard } from "@/components/ui/glow-card"
 import { Reveal } from "@/components/motion/Reveal"
 import type { Accent } from "@/components/ui/glow-card"
@@ -18,13 +19,13 @@ export function Problems() {
           <p className="mt-3 text-[#d6d1e8]">Negocio local</p>
         </Reveal>
         <div className="mt-8 grid gap-4 md:grid-cols-3">
-          {items.map((item) => (
-            <Reveal key={item.title}>
+          {items.map((item, index) => (
+            <div key={item.title} className="scroll-in h-full" style={{ "--scroll-i": index } as CSSProperties}>
               <GlowCard accent={item.accent} className="h-full min-h-[180px]">
                 <h3 className="font-display text-xl font-semibold text-white">{item.title}</h3>
                 <p className="mt-3 text-[#d6d1e8]">{item.text}</p>
               </GlowCard>
-            </Reveal>
+            </div>
           ))}
         </div>
         <p className="mt-6 font-semibold text-[#efe8ff]">Siguiente paso: una propuesta a medida, no un paquete genérico.</p>

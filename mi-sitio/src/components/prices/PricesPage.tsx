@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import type { ReactNode } from "react"
+import type { CSSProperties, ReactNode } from "react"
 import { Reveal } from "@/components/motion/Reveal"
 import { DIAGNOSIS_MESSAGE, planQuote, whatsappHref } from "@/config"
 import { appHref } from "@/lib/path"
@@ -114,8 +114,8 @@ export function PricesPage() {
             <p className="mx-auto mt-4 max-w-3xl text-[#d6d1e8]">{launchNotice}</p>
           </Reveal>
           <div className="sheets mt-8 grid gap-4 lg:grid-cols-3">
-            {paquetes.map((plan) => (
-              <article key={plan.id} id={plan.id} className={`sheet scroll-mt-28 p-6 ${plan.recommended ? "sheet-hot" : ""}`}>
+            {paquetes.map((plan, index) => (
+              <article key={plan.id} id={plan.id} className={`sheet scroll-in plan-card scroll-mt-28 p-6 ${plan.recommended ? "sheet-hot" : ""}`} style={{ "--scroll-i": index } as CSSProperties}>
                 {plan.recommended ? <p className="mb-2 text-xs font-bold text-[#efe8ff]">Recomendado</p> : null}
                 <h3 className="font-display text-2xl font-semibold text-white">{plan.name}</h3>
                 <p className="text-[#d6d1e8]">{plan.label}</p>

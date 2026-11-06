@@ -1,4 +1,3 @@
-import { motion, useReducedMotion } from "motion/react"
 import { useState } from "react"
 import type { FormEvent } from "react"
 import { Reveal } from "@/components/motion/Reveal"
@@ -22,7 +21,6 @@ type Fields = {
 const empty: Fields = { nombre: "", negocio: "", telefono: "", mensaje: "" }
 
 export function Contact() {
-  const reduce = useReducedMotion()
   const [fields, setFields] = useState<Fields>(empty)
   const [errors, setErrors] = useState<Partial<Fields>>({})
   const [ready, setReady] = useState<string | null>(null)
@@ -69,16 +67,9 @@ export function Contact() {
             </li>
           </ul>
           <p className="mt-6">
-            <motion.a
-              className="btn-primary"
-              href={whatsappHref()}
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={reduce ? undefined : { scale: 1.03 }}
-              transition={{ duration: 0.2 }}
-            >
+            <a className="btn-primary" href={whatsappHref()} target="_blank" rel="noopener noreferrer">
               Escribir por WhatsApp
-            </motion.a>
+            </a>
           </p>
         </Reveal>
         <Reveal>

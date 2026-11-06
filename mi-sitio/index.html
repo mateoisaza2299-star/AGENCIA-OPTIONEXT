@@ -21,6 +21,16 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      try {
+        if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          document.documentElement.classList.add("js-reveal")
+        }
+      } catch (e) {}
+    </script>
+    <noscript>
+      <style>.scroll-in{opacity:1!important;transform:none!important}</style>
+    </noscript>
+    <script type="module" src="/src/main.tsx?v=2"></script>
   </body>
 </html>

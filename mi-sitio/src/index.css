@@ -410,4 +410,97 @@ img {
     pointer-events: auto;
     transition: none;
   }
+
+}
+
+button,
+.btn-primary,
+.btn-ghost {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 80ms ease-out, filter 80ms ease-out;
+}
+
+button:focus-visible,
+.btn-primary:focus-visible,
+.btn-ghost:focus-visible,
+.plan-card:focus-visible {
+  outline: 2px solid #fde68a;
+  outline-offset: 3px;
+}
+
+.js-reveal .scroll-in:not(.is-visible) {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.js-reveal .scroll-in.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition-property: opacity, transform;
+  transition-duration: 550ms;
+  transition-timing-function: ease-out;
+  transition-delay: min(calc(var(--scroll-i, 0) * 90ms), 300ms);
+}
+
+.js-reveal .scroll-in.is-animating {
+  will-change: transform, opacity;
+}
+
+.js-reveal .scroll-in.is-settled {
+  transition-delay: 0ms;
+  will-change: auto;
+}
+
+@media (hover: hover) {
+  button,
+  .btn-primary,
+  .btn-ghost {
+    transition: transform 180ms ease-out, filter 180ms ease-out;
+  }
+
+  button:hover,
+  .btn-primary:hover,
+  .btn-ghost:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+  }
+
+  html:not(.js-reveal) .plan-card:hover,
+  .plan-card.is-settled:hover {
+    transform: translateY(-2px);
+    transition: transform 180ms ease-out;
+  }
+}
+
+button:active,
+.btn-primary:active,
+.btn-ghost:active {
+  transform: scale(0.97);
+  filter: brightness(1.1);
+  transition-duration: 80ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal .scroll-in,
+  .js-reveal .scroll-in:not(.is-visible),
+  .js-reveal .scroll-in.is-visible,
+  .js-reveal .scroll-in.is-animating {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+
+  button:hover,
+  button:active,
+  .btn-primary:hover,
+  .btn-primary:active,
+  .btn-ghost:hover,
+  .btn-ghost:active,
+  .plan-card:hover,
+  .plan-card.is-settled:hover {
+    transform: none;
+    transition: none;
+  }
 }
