@@ -12,7 +12,7 @@ export function Plans() {
       <div className="mx-auto w-full max-w-[1120px]">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="eyebrow">Precios</p>
-          <h2 id="precios-title" className="section-title">Tres niveles. Uno para tu <span className="grad">etapa</span>.</h2>
+          <h2 id="precios-title" className="section-title">Planes.</h2>
           <p className="mt-4 text-lg text-[#d6d1e8]">Startex, Pro Option y Businext salen de la misma lista que la página de precios. El diagnóstico y los demás servicios están allá.</p>
         </Reveal>
         <div className="mt-8 grid gap-4 lg:grid-cols-3">

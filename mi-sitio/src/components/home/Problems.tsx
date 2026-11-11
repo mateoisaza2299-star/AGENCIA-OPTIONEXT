@@ -14,9 +14,9 @@ export function Problems() {
     <section className="band band-lift px-4 py-16" aria-labelledby="negocio-title">
       <div className="mx-auto w-full max-w-[1120px]">
         <Reveal>
-          <p className="eyebrow">Diagnóstico</p>
-          <h2 id="negocio-title" className="section-title">Lo que suele aparecer <span className="grad">primero</span></h2>
-          <p className="mt-3 text-[#d6d1e8]">Negocio local</p>
+          <p className="eyebrow">El costo oculto</p>
+          <h2 id="negocio-title" className="section-title">El <span className="grad">problema</span></h2>
+          <p className="mt-3 text-[#d6d1e8]">Cada semana se pierde plata por cosas que nadie midió.</p>
         </Reveal>
         <div className="mt-8 grid gap-4 md:grid-cols-3">
           {items.map((item, index) => (
@@ -28,7 +28,7 @@ export function Problems() {
             </div>
           ))}
         </div>
-        <p className="mt-6 font-semibold text-[#efe8ff]">Siguiente paso: una propuesta a medida, no un paquete genérico.</p>
+        <p className="mt-6 font-semibold text-[#efe8ff]">No es falta de esfuerzo. Es falta de un sistema.</p>
       </div>
     </section>
   )

@@ -1,6 +1,5 @@
 import { SectionGlow } from "@/components/ui/glow-card"
 import { DIAGNOSIS_MESSAGE, whatsappHref } from "@/config"
-import { appHref } from "@/lib/path"
 
 export function Hero() {
   return (
@@ -9,20 +8,17 @@ export function Hero() {
         <div className="mx-auto w-full max-w-[1120px] px-4 py-16 md:py-24">
           <p className="eyebrow">Sabana de Occidente · Cundinamarca</p>
           <h1 id="hero-title" className="font-display mt-3 max-w-4xl text-[clamp(2.4rem,5vw,4.4rem)] leading-[1.05] font-bold tracking-[-0.04em] text-white">
-            Primero el <em className="grad not-italic">diagnóstico</em>. Después, la solución que sí sirve.
+            Deja de perder clientes.
           </h1>
           <p className="mt-5 max-w-xl text-lg text-[#d6d1e8]">
-            Acompañamos a MIPYMES y negocios locales. Entendemos cómo trabaja tu operación y recién ahí implementamos el sitio, el bot de WhatsApp, la automatización o la inteligencia artificial que hace falta.
+            En 14 días automatizamos lo que te hace perder pedidos y tiempo. Sin código. Lo ves funcionar antes de pagar.
           </p>
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-7">
             <a className="btn-primary" href={whatsappHref(DIAGNOSIS_MESSAGE)} target="_blank" rel="noopener noreferrer">
-              Agenda un diagnóstico
-            </a>
-            <a className="btn-ghost" href={appHref("/precios")}>
-              Ver precios
+              Agenda tu diagnóstico gratis
             </a>
           </div>
-          <p className="mt-5 text-sm font-semibold text-[#efe8ff]">Garantía contractual de 90 días, según el contrato.</p>
+          <p className="mt-5 text-sm font-semibold text-[#efe8ff]">✓ Diagnóstico gratis · ✓ Piloto 14 días · ✓ Garantía 3 meses · ✓ Solo 3 cupos al mes</p>
         </div>
       </SectionGlow>
     </section>

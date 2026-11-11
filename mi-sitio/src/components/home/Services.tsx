@@ -36,7 +36,7 @@ export function Services() {
       <div className="mx-auto w-full max-w-[1120px]">
         <Reveal className="max-w-2xl">
           <p className="eyebrow">Servicios</p>
-          <h2 id="servicios-title" className="section-title">Lo que implementamos, después de <span className="grad">entender</span>.</h2>
+          <h2 id="servicios-title" className="section-title">Qué <span className="grad">hacemos</span>.</h2>
           <p className="mt-4 text-lg text-[#d6d1e8]">No son productos sueltos. Son las piezas con las que armamos la solución cuando el diagnóstico ya encontró el problema.</p>
         </Reveal>
         <div className="mt-8 grid gap-4 sm:grid-cols-2">

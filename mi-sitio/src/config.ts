@@ -1,8 +1,8 @@
-/** PENDIENTE: número visible. No reemplazar por un dato inventado. */
-export const PHONE_DISPLAY = "PENDIENTE"
+/** Número visible en la página. */
+export const PHONE_DISPLAY = "310 881 3365"
 
-/** PENDIENTE: teléfono para el enlace tel:. No reemplazar por un dato inventado. */
-export const PHONE_TEL = "PENDIENTE"
+/** Teléfono para tel: y WhatsApp (Colombia +57). */
+export const PHONE_TEL = "+573108813365"
 
 /** PENDIENTE: perfil de Instagram. */
 export const INSTAGRAM_URL = "PENDIENTE"

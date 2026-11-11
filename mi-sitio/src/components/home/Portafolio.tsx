@@ -22,7 +22,7 @@ export function Portafolio() {
         <Entrada index={0} className="max-w-2xl">
           <p className="eyebrow">Portafolio</p>
           <h2 id="portafolio-title" className="section-title">
-            Páginas que hemos <span className="grad">hecho</span>.
+            Portafolio.
           </h2>
           <p className="mt-4 text-lg text-[#d6d1e8]">Así abren las páginas que ya publicamos.</p>
         </Entrada>

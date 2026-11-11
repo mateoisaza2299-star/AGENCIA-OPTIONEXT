@@ -13,7 +13,7 @@ export function Testimonials() {
       <div className="mx-auto w-full max-w-[1120px]">
         <Reveal>
           <p className="eyebrow">Testimonios</p>
-          <h2 id="testimonios-title" className="section-title">Negocios de la zona, contado por <span className="grad">ellos</span>.</h2>
+          <h2 id="testimonios-title" className="section-title">Testimonios.</h2>
           <p className="mt-4 max-w-2xl text-lg text-[#d6d1e8]">Historias del tipo de trabajo que hacemos: primero el problema, después la herramienta.</p>
           <p className="mt-3 text-sm font-semibold tracking-wide text-[#efe8ff] uppercase">Ejemplos del tipo de trabajo que hacemos</p>
         </Reveal>
