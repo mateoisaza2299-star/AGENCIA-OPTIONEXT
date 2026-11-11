@@ -2,12 +2,12 @@ import { Reveal } from "@/components/motion/Reveal"
 import { DIAGNOSIS_MESSAGE, whatsappHref } from "@/config"
 
 const items = [
-  ["Diagnóstico", "Gratis. 30–45 min. Mapeamos dónde exactamente pierdes tiempo y clientes.", "Valor: $400.000 COP"],
-  ["Mapa", "Plan escrito de tu operación: tareas a eliminar y horas que recuperas por semana.", "Valor: $200.000 COP"],
-  ["Piloto", "14 días gratis. La solución funcionando en tu negocio antes de pagar un peso.", "Valor: $800.000 COP"],
-  ["Implementación", "Solo lo que el diagnóstico dice. Precio según tu nivel real.", "según nivel"],
+  ["Diagnóstico", "Gratis. 30–45 min. Mapeamos dónde pierdes tiempo y clientes.", "Valor: $400.000 COP"],
+  ["Mapa", "Plan escrito: qué eliminar y cuántas horas recuperas por semana.", "Valor: $200.000 COP"],
+  ["Piloto", "14 días gratis. Funcionando en tu negocio antes de pagar.", "Valor: $800.000 COP"],
+  ["Implementación", "Solo el nivel que el diagnóstico diga. Precio cerrado después.", "Después del diagnóstico"],
   ["Soporte", "30 días post-implementación. Ajustamos hasta que funcione.", "Valor: $300.000 COP"],
-  ["Bonus", "Guía: Los 5 cuellos de botella más comunes en negocios de servicio. Gratis al agendar.", "Valor: $150.000 COP"],
+  ["Bonus", "Guía: 5 cuellos de botella en negocios de servicio. Gratis al agendar.", "Valor: $150.000 COP"],
 ]
 
 export function Oferta() {
@@ -16,9 +16,9 @@ export function Oferta() {
       <div className="mx-auto grid w-full max-w-[1120px] gap-10 lg:grid-cols-[1.15fr_0.85fr]">
         <Reveal>
           <p className="eyebrow">La oferta</p>
-          <h2 id="oferta-title" className="section-title">La oferta.</h2>
-          <p className="mt-4 text-lg text-[#d6d1e8]">Solo abrimos 3 diagnósticos nuevos al mes.</p>
-          <p className="mt-4 font-semibold text-white">Valor total recibido: $1.850.000 COP. Tu inversión: según tu nivel real, después del diagnóstico.</p>
+          <h2 id="oferta-title" className="section-title">Qué recibes.</h2>
+          <p className="mt-4 text-lg text-[#d6d1e8]">Hoy pagas $0. El precio de implementación llega después del diagnóstico, según tu nivel real.</p>
+          <p className="mt-4 font-semibold text-white">Valor del stack: $1.850.000 COP · Inversión hoy: $0</p>
           <p className="mt-4 font-semibold text-[#efe8ff]">Solo abrimos 3 diagnósticos nuevos al mes.</p>
           <p className="mt-6">
             <a className="btn-primary" href={whatsappHref(DIAGNOSIS_MESSAGE)} target="_blank" rel="noopener noreferrer">
@@ -28,7 +28,7 @@ export function Oferta() {
         </Reveal>
         <Reveal delay={0.08}>
           <div className="sheet p-6" aria-label="Qué incluye la oferta">
-            <p className="font-display font-semibold text-white">Qué recibes</p>
+            <p className="font-display font-semibold text-white">Todo incluido</p>
             <ol className="mt-2">
               {items.map(([title, text, value], index) => (
                 <li key={title} className="flex gap-3 border-t border-white/10 py-4">

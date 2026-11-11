@@ -1,6 +1,5 @@
 import { Reveal } from "@/components/motion/Reveal"
 import { GlowCard } from "@/components/ui/glow-card"
-import { DIAGNOSIS_MESSAGE, whatsappHref } from "@/config"
 
 const rows = [
   ["Web por un lado, automatización por otro", "Web + automatización como un solo sistema"],
@@ -18,13 +17,13 @@ export function Mecanismo() {
           <p className="eyebrow">El Método Optionext</p>
           <h2 id="mecanismo-title" className="section-title">Todo conectado.</h2>
           <p className="mt-4 text-[#d6d1e8]">
-            Una agencia web por un lado. Automatizaciones por otro. Pagan doble y los sistemas no se hablan. La mayoría de negocios locales contratan por separado: nadie entiende el negocio completo y los sistemas no se hablan entre sí.
+            La mayoría paga doble: una agencia web y otro para automatizar. Nadie ve el negocio completo y los sistemas no se hablan.
           </p>
           <p className="mt-4 font-semibold text-white">
-            Optionext diagnostica, construye la web y automatiza los procesos internos como un solo sistema. La reserva que llega a la web dispara el aviso al dueño por WhatsApp. El formulario alimenta la base de datos. Todo conectado, desde el Nivel 1 hasta donde el negocio lo necesite.
+            Nosotros diagnosticamos, construimos la web y automatizamos como un solo sistema. La reserva en la web avisa al dueño por WhatsApp. El formulario alimenta la base. Del Nivel 1 hasta donde haga falta.
           </p>
-          <p className="mt-4 text-[#d6d1e8]">
-            Como entendemos el negocio completo antes de tocar una herramienta, no hay trabajo innecesario. Por eso los precios tienen sentido para un negocio local.
+          <p className="mt-4 font-semibold text-[#efe8ff]">
+            Nadie puede comprarnos nada hasta que el diagnóstico diga en qué nivel está el negocio.
           </p>
         </Reveal>
 
@@ -51,15 +50,6 @@ export function Mecanismo() {
               </ul>
             </GlowCard>
           </div>
-        </Reveal>
-
-        <Reveal className="mt-8 max-w-3xl">
-          <p className="font-semibold text-[#efe8ff]">Nadie puede comprarnos nada hasta que el diagnóstico diga exactamente en qué nivel está el negocio.</p>
-          <p className="mt-6">
-            <a className="btn-primary" href={whatsappHref(DIAGNOSIS_MESSAGE)} target="_blank" rel="noopener noreferrer">
-              Agenda tu diagnóstico gratis
-            </a>
-          </p>
         </Reveal>
       </div>
     </section>

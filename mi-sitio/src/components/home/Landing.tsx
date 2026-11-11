@@ -20,17 +20,17 @@ export function Landing() {
   return (
     <main id="contenido">
       <Hero />
+      <Problems />
       <Mecanismo />
       <Oferta />
       <Niveles />
-      <Problems />
+      <Testimonials />
+      <Portafolio />
+      <Garantia />
+      <Process />
       <About />
       <Services />
-      <Portafolio />
       <Plans />
-      <Process />
-      <Garantia />
-      <Testimonials />
       <Faq />
       <Contact />
       <CtaFinal />

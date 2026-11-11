@@ -1,7 +1,6 @@
 import type { CSSProperties } from "react"
 import { Reveal } from "@/components/motion/Reveal"
 import { GlowCard, type Accent } from "@/components/ui/glow-card"
-import { DIAGNOSIS_MESSAGE, whatsappHref } from "@/config"
 
 const niveles: { title: string; text: string; accent: Accent }[] = [
   { title: "Nivel 1", text: "Formulario + Google Sheets — donde está la mayoría de negocios locales", accent: "brand" },
@@ -18,7 +17,10 @@ export function Niveles() {
         <Reveal className="max-w-3xl">
           <p className="eyebrow">El Sistema de los 5 Niveles</p>
           <h2 id="niveles-title" className="section-title">5 niveles.</h2>
-          <p className="mt-4 text-lg text-[#d6d1e8]">Te decimos en cuál nivel estás. Nunca te vendemos el más caro. Nadie tiene que llegar al Nivel 5: implementamos solo lo que el diagnóstico dice que necesitas.</p>
+          <p className="mt-4 text-lg text-[#d6d1e8]">
+            Te decimos en cuál estás. Nunca te vendemos el más caro. Implementamos solo lo que el diagnóstico pide.
+          </p>
+          <p className="mt-4 font-semibold text-[#efe8ff]">No vendemos tecnología. Vendemos el diagnóstico.</p>
         </Reveal>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {niveles.map((nivel, index) => (
@@ -30,14 +32,6 @@ export function Niveles() {
             </div>
           ))}
         </div>
-        <Reveal className="mt-8 max-w-3xl">
-          <p className="font-semibold text-[#efe8ff]">No vendemos tecnología. Vendemos el diagnóstico. La tecnología es solo el resultado.</p>
-          <p className="mt-6">
-            <a className="btn-primary" href={whatsappHref(DIAGNOSIS_MESSAGE)} target="_blank" rel="noopener noreferrer">
-              Agenda tu diagnóstico gratis
-            </a>
-          </p>
-        </Reveal>
       </div>
     </section>
   )
