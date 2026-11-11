@@ -9,10 +9,10 @@ export function Hero() {
         <div className="mx-auto w-full max-w-[1120px] px-4 py-16 md:py-24">
           <p className="eyebrow">Sabana de Occidente · Cundinamarca</p>
           <h1 id="hero-title" className="font-display mt-3 max-w-4xl text-[clamp(2.4rem,5vw,4.4rem)] leading-[1.05] font-bold tracking-[-0.04em] text-white">
-            Tu negocio deja de perder clientes por no responder a tiempo — en 14 días, sin que toques una línea de código, sin pagar hasta verlo funcionar.
+            Deja de perder clientes por no responder a tiempo.
           </h1>
           <p className="mt-5 max-w-xl text-lg text-[#d6d1e8]">
-            Encontramos exactamente qué te está robando tiempo y plata. Lo automatizamos. Tú lo ves funcionar antes de pagar un peso.
+            En 14 días lo automatizamos, sin que toques una línea de código. Tú lo ves funcionar antes de pagar un peso.
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <a className="btn-primary" href={whatsappHref(DIAGNOSIS_MESSAGE)} target="_blank" rel="noopener noreferrer">
