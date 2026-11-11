@@ -406,7 +406,7 @@ export const licenses = [
 export const conditions = [
   "El cliente entrega textos, imágenes, logotipos, precios, credenciales y materiales. Los retrasos pueden mover la fecha de publicación.",
   "Cada propuesta indica cuántas rondas de cambios incluye. Una ronda es un conjunto de observaciones entregado en una sola comunicación. Lo que cambie el alcance se cotiza aparte.",
-  "Garantía contractual de 90 días: cubre los defectos que defina el contrato y excluye lo que allí se indique. Es independiente del periodo de revisión acordado.",
+  "Garantía contractual de 3 meses: cubre los defectos que defina el contrato y excluye lo que allí se indique. Es independiente del periodo de revisión acordado.",
   "Suscripciones, alojamiento, consumo de IA, cargos de WhatsApp o Meta y comisiones de pasarelas se cobran por separado. Si OPTIONEXT administra alojamiento o infraestructura, aplica según la modalidad acordada en la propuesta de ese cliente: Modalidad A (suscripción) o Modalidad B (implementación alojada / llave en mano). No queda incluido en todos los planes. Se aclara quién los paga y quién es titular de la cuenta.",
   "El mantenimiento cubre solo lo descrito en el plan. Nuevas funciones, rediseños e integraciones adicionales requieren aprobación y cotización.",
   "Podemos adaptar la propuesta al presupuesto priorizando funciones, reduciendo el alcance inicial o implementando por etapas. No significa las mismas funciones por menos dinero, y todo cambio se acuerda antes de empezar.",
@@ -429,7 +429,7 @@ export const faq = [
   },
   {
     q: "¿Qué cubre la garantía?",
-    a: "Garantía contractual de 90 días, según el contrato. Cubre los defectos que defina el contrato y excluye lo que allí se indique. Es independiente del periodo de revisión acordado.",
+    a: "Garantía contractual de 3 meses, según el contrato. Cubre los defectos que defina el contrato y excluye lo que allí se indique. Es independiente del periodo de revisión acordado.",
   },
   {
     q: "¿La web se contrata con mensualidad?",

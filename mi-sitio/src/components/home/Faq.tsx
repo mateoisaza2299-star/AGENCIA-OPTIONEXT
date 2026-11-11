@@ -11,7 +11,7 @@ const faq = [
   },
   {
     q: "¿Qué pasa si no me sirve?",
-    a: "Si en los 14 días del piloto no ves al menos una tarea eliminada o automatizada, te devolvemos cada peso del setup. Sin letra chica.",
+    a: "Tienes garantía de 3 meses. Si lo implementado no funciona como acordamos, lo corregimos sin costo extra. Sin letra chica.",
   },
   {
     q: "¿Cuánto tarda en funcionar?",

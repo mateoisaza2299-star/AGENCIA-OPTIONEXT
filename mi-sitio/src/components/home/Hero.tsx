@@ -22,7 +22,7 @@ export function Hero() {
               Ver precios
             </a>
           </div>
-          <p className="mt-5 text-sm font-semibold text-[#efe8ff]">✓ Diagnóstico gratis · ✓ 14 días de piloto sin costo · ✓ Si no ves resultados, no pagas — sin letra chica</p>
+          <p className="mt-5 text-sm font-semibold text-[#efe8ff]">✓ Diagnóstico gratis · ✓ 14 días de piloto sin costo · ✓ Garantía de 3 meses</p>
         </div>
       </SectionGlow>
     </section>
