@@ -18,7 +18,7 @@ export function Process() {
       <div className="mx-auto w-full max-w-[1120px]">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="eyebrow">Cómo trabajamos</p>
-          <h2 id="proceso-title" className="section-title">Cuatro pasos, del <span className="grad">diagnóstico</span> al soporte.</h2>
+          <h2 id="proceso-title" className="section-title">El <span className="grad">proceso</span>.</h2>
           <p className="mt-4 text-lg text-[#d6d1e8]">Un recorrido corto. Sin entregarte una herramienta que nadie pidió y sin dejarte solo cuando ya está en marcha.</p>
         </Reveal>
         <Reveal className="mx-auto mt-10 max-w-3xl">

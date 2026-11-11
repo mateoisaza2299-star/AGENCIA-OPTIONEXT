@@ -17,7 +17,7 @@ export function Niveles() {
       <div className="mx-auto w-full max-w-[1120px]">
         <Reveal className="max-w-3xl">
           <p className="eyebrow">El Sistema de los 5 Niveles</p>
-          <h2 id="niveles-title" className="section-title">Tu nivel correcto.</h2>
+          <h2 id="niveles-title" className="section-title">5 niveles.</h2>
           <p className="mt-4 text-lg text-[#d6d1e8]">Te decimos en cuál nivel estás. Nunca te vendemos el más caro. Nadie tiene que llegar al Nivel 5: implementamos solo lo que el diagnóstico dice que necesitas.</p>
         </Reveal>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

@@ -29,7 +29,7 @@ export function Faq() {
       <div className="mx-auto w-full max-w-[1120px]">
         <Reveal className="mx-auto max-w-3xl text-center">
           <p className="eyebrow">Preguntas frecuentes</p>
-          <h2 id="faq-landing-title" className="section-title">Antes de agendar.</h2>
+          <h2 id="faq-landing-title" className="section-title">FAQ.</h2>
         </Reveal>
         <Reveal className="mx-auto mt-8 max-w-3xl">
           <div className="sheets space-y-3">

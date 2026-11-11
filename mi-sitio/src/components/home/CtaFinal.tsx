@@ -6,7 +6,7 @@ export function CtaFinal() {
     <section id="cta-final" className="band band-color scroll-mt-24 px-4 py-16" aria-labelledby="cta-final-title">
       <div className="mx-auto max-w-3xl text-center">
         <Reveal>
-          <h2 id="cta-final-title" className="section-title">¿Cuánto estás perdiendo?</h2>
+          <h2 id="cta-final-title" className="section-title">Agenda ahora.</h2>
           <p className="mt-4 text-lg text-[#d6d1e8]">
             El diagnóstico es gratis. La conversación dura 30 minutos. Y al final sabes exactamente qué está fallando y cómo arreglarlo.
           </p>

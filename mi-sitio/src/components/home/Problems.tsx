@@ -15,7 +15,7 @@ export function Problems() {
       <div className="mx-auto w-full max-w-[1120px]">
         <Reveal>
           <p className="eyebrow">Diagnóstico</p>
-          <h2 id="negocio-title" className="section-title">Lo que suele aparecer <span className="grad">primero</span></h2>
+          <h2 id="negocio-title" className="section-title">El <span className="grad">problema</span></h2>
           <p className="mt-3 text-[#d6d1e8]">Negocio local</p>
         </Reveal>
         <div className="mt-8 grid gap-4 md:grid-cols-3">
