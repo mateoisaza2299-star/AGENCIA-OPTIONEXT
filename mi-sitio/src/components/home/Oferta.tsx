@@ -2,12 +2,10 @@ import { Reveal } from "@/components/motion/Reveal"
 import { DIAGNOSIS_MESSAGE, whatsappHref } from "@/config"
 
 const items = [
-  ["Diagnóstico", "Gratis. 30–45 min. Mapeamos dónde pierdes tiempo y clientes.", "Valor: $400.000 COP"],
-  ["Mapa", "Plan escrito: qué eliminar y cuántas horas recuperas por semana.", "Valor: $200.000 COP"],
-  ["Piloto", "14 días gratis. Funcionando en tu negocio antes de pagar.", "Valor: $800.000 COP"],
-  ["Implementación", "Solo el nivel que el diagnóstico diga. Precio cerrado después.", "Después del diagnóstico"],
-  ["Soporte", "30 días post-implementación. Ajustamos hasta que funcione.", "Valor: $300.000 COP"],
-  ["Bonus", "Guía: 5 cuellos de botella en negocios de servicio. Gratis al agendar.", "Valor: $150.000 COP"],
+  ["Diagnóstico", "Gratis. Vemos cómo atiendes, cobras y entregas antes de hablar de herramientas."],
+  ["Propuesta", "Según tu operación, con un plan de precio cerrado. Si algo no aporta, queda fuera."],
+  ["Implementación", "Sitio, bot de WhatsApp, automatización o IA solo cuando resuelven un problema real."],
+  ["Puesta en marcha", "Lo dejamos funcionando en tu negocio y seguimos cerca para ajustarlo."],
 ]
 
 export function Oferta() {
@@ -17,9 +15,9 @@ export function Oferta() {
         <Reveal>
           <p className="eyebrow">La oferta</p>
           <h2 id="oferta-title" className="section-title">Qué recibes.</h2>
-          <p className="mt-4 text-lg text-[#d6d1e8]">Hoy pagas $0. El precio de implementación llega después del diagnóstico, según tu nivel real.</p>
-          <p className="mt-4 font-semibold text-white">Valor del stack: $1.850.000 COP · Inversión hoy: $0</p>
-          <p className="mt-4 font-semibold text-[#efe8ff]">Solo abrimos 3 diagnósticos nuevos al mes.</p>
+          <p className="mt-4 text-lg text-[#d6d1e8]">
+            Diagnóstico gratuito. Propuesta a medida. Sin empujarte un paquete genérico.
+          </p>
           <p className="mt-6">
             <a className="btn-primary" href={whatsappHref(DIAGNOSIS_MESSAGE)} target="_blank" rel="noopener noreferrer">
               Agenda tu diagnóstico gratis
@@ -27,10 +25,10 @@ export function Oferta() {
           </p>
         </Reveal>
         <Reveal delay={0.08}>
-          <div className="sheet p-6" aria-label="Qué incluye la oferta">
-            <p className="font-display font-semibold text-white">Todo incluido</p>
+          <div className="sheet p-6" aria-label="Qué incluye">
+            <p className="font-display font-semibold text-white">Del diagnóstico al soporte</p>
             <ol className="mt-2">
-              {items.map(([title, text, value], index) => (
+              {items.map(([title, text], index) => (
                 <li key={title} className="flex gap-3 border-t border-white/10 py-4">
                   <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[#efe8ff] font-display text-sm font-bold text-[#4b2e9e]" aria-hidden="true">
                     {index + 1}
@@ -38,7 +36,6 @@ export function Oferta() {
                   <div>
                     <h3 className="font-display text-lg font-semibold text-white">{title}</h3>
                     <p className="text-[#d6d1e8]">{text}</p>
-                    <p className="mt-1 text-sm font-semibold text-[#efe8ff]">{value}</p>
                   </div>
                 </li>
               ))}

@@ -9,7 +9,7 @@ export function Garantia() {
           <p className="eyebrow">Garantía</p>
           <h2 id="garantia-title" className="section-title">3 meses.</h2>
           <p className="mt-4 text-lg text-[#d6d1e8]">
-            Garantía de 3 meses. Si lo implementado no funciona como acordamos, lo corregimos sin costo extra. Sin letra chica, sin drama.
+            Garantía contractual de 3 meses, según el contrato. Cubre los defectos que defina el contrato.
           </p>
           <p className="mt-6">
             <a className="btn-primary" href={whatsappHref(DIAGNOSIS_MESSAGE)} target="_blank" rel="noopener noreferrer">
