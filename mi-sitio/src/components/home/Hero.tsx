@@ -1,5 +1,6 @@
 import { SectionGlow } from "@/components/ui/glow-card"
 import { DIAGNOSIS_MESSAGE, whatsappHref } from "@/config"
+import { appHref } from "@/lib/path"
 
 export function Hero() {
   return (
@@ -11,14 +12,17 @@ export function Hero() {
             Deja de perder clientes.
           </h1>
           <p className="mt-5 max-w-xl text-lg text-[#d6d1e8]">
-            En 14 días automatizamos lo que te hace perder pedidos y tiempo. Sin código. Lo ves funcionar antes de pagar.
+            Acompañamos a MIPYMES y negocios locales. Entendemos cómo trabaja tu operación y recién ahí implementamos el sitio, el bot de WhatsApp, la automatización o la inteligencia artificial que hace falta.
           </p>
-          <div className="mt-7">
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <a className="btn-primary" href={whatsappHref(DIAGNOSIS_MESSAGE)} target="_blank" rel="noopener noreferrer">
               Agenda tu diagnóstico gratis
             </a>
+            <a className="btn-ghost" href={appHref("/precios")}>
+              Ver precios
+            </a>
           </div>
-          <p className="mt-5 text-sm font-semibold text-[#efe8ff]">✓ Diagnóstico gratis · ✓ Piloto 14 días · ✓ Garantía 3 meses · ✓ Solo 3 cupos al mes</p>
+          <p className="mt-5 text-sm font-semibold text-[#efe8ff]">Diagnóstico gratuito · Garantía de 3 meses, según el contrato.</p>
         </div>
       </SectionGlow>
     </section>

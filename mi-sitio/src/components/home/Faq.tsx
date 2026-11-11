@@ -3,23 +3,23 @@ import { Reveal } from "@/components/motion/Reveal"
 const faq = [
   {
     q: "¿Cuánto cuesta?",
-    a: "El diagnóstico es gratis. La propuesta de precio llega después, basada en tu nivel real. Sin paquetes cerrados ni precios inventados.",
+    a: "El diagnóstico es gratis. La propuesta llega después, según tu operación, con un plan de precio cerrado.",
   },
   {
     q: "¿Tengo que entender de tecnología?",
-    a: "No. Nosotros hacemos el diagnóstico, elegimos el nivel y lo dejamos funcionando. Tu trabajo es contarnos cómo opera tu negocio hoy.",
+    a: "No. Empezamos viendo cómo trabaja tu negocio. La herramienta entra cuando resuelve un problema real.",
   },
   {
     q: "¿Qué pasa si no me sirve?",
-    a: "Tienes garantía de 3 meses. Si lo implementado no funciona como acordamos, lo corregimos sin costo extra. Sin letra chica.",
+    a: "Hay garantía de 3 meses, según el contrato. Cubre los defectos que defina el contrato.",
   },
   {
-    q: "¿Cuánto tarda en funcionar?",
-    a: "El Nivel 1 puede estar listo en días. Los niveles más altos dependen de la complejidad, pero siempre empezamos por lo que genera impacto rápido.",
+    q: "¿Cómo trabajan?",
+    a: "Diagnóstico, propuesta a medida, puesta en marcha y soporte. Si una pieza no hace falta, no la vendemos.",
   },
   {
-    q: "¿Solo trabajan con un tipo de negocio?",
-    a: "No. Trabajamos con cualquier negocio local: restaurantes, barberías, tiendas, talleres, salones, cafeterías. El diagnóstico aplica igual.",
+    q: "¿Con quién trabajan?",
+    a: "Con MIPYMES y negocios locales de la Sabana de Occidente y la zona: tiendas, talleres, restaurantes y empresas familiares.",
   },
 ]
 
