@@ -16,9 +16,9 @@ export function Mecanismo() {
       <div className="mx-auto w-full max-w-[1120px]">
         <Reveal className="max-w-3xl">
           <p className="eyebrow">El Método Optionext</p>
-          <h2 id="mecanismo-title" className="section-title">Una agencia web por un lado. Automatizaciones por otro. Pagan doble y los sistemas no se hablan.</h2>
+          <h2 id="mecanismo-title" className="section-title">Un solo sistema.</h2>
           <p className="mt-4 text-[#d6d1e8]">
-            La mayoría de negocios locales contratan una agencia web por un lado y buscan quién les automatice por otro. Pagan doble, nadie entiende el negocio completo y los sistemas no se hablan entre sí.
+            Una agencia web por un lado. Automatizaciones por otro. Pagan doble y los sistemas no se hablan. La mayoría de negocios locales contratan por separado: nadie entiende el negocio completo y los sistemas no se hablan entre sí.
           </p>
           <p className="mt-4 font-semibold text-white">
             Optionext diagnostica, construye la web y automatiza los procesos internos como un solo sistema. La reserva que llega a la web dispara el aviso al dueño por WhatsApp. El formulario alimenta la base de datos. Todo conectado, desde el Nivel 1 hasta donde el negocio lo necesite.

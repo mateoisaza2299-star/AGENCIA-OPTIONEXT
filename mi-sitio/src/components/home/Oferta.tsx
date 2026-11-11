@@ -16,7 +16,7 @@ export function Oferta() {
       <div className="mx-auto grid w-full max-w-[1120px] gap-10 lg:grid-cols-[1.15fr_0.85fr]">
         <Reveal>
           <p className="eyebrow">La oferta</p>
-          <h2 id="oferta-title" className="section-title">Todo lo que incluye. Lo que vale. Lo que pagas.</h2>
+          <h2 id="oferta-title" className="section-title">Qué incluye.</h2>
           <p className="mt-4 text-lg text-[#d6d1e8]">Solo abrimos 3 diagnósticos nuevos al mes.</p>
           <p className="mt-4 font-semibold text-white">Valor total recibido: $1.850.000 COP. Tu inversión: según tu nivel real, después del diagnóstico.</p>
           <p className="mt-4 font-semibold text-[#efe8ff]">Solo abrimos 3 diagnósticos nuevos al mes.</p>

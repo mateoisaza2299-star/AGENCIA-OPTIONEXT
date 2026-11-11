@@ -4,11 +4,11 @@ import { GlowCard, type Accent } from "@/components/ui/glow-card"
 import { DIAGNOSIS_MESSAGE, whatsappHref } from "@/config"
 
 const niveles: { title: string; text: string; accent: Accent }[] = [
-  { title: "Nivel 1 → Formulario + Google Sheets", text: "donde está la mayoría de negocios locales", accent: "brand" },
-  { title: "Nivel 2 → Automatización con n8n", text: "cuando el Nivel 1 ya no da abasto", accent: "violet" },
-  { title: "Nivel 3 → Base de datos", text: "cuando el volumen lo exige", accent: "magenta" },
-  { title: "Nivel 4 → Dashboard + reportes", text: "cuando necesitas ver el negocio en tiempo real", accent: "amber" },
-  { title: "Nivel 5 → IA + integraciones avanzadas", text: "solo cuando los 4 anteriores ya están", accent: "brand" },
+  { title: "Nivel 1", text: "Formulario + Google Sheets — donde está la mayoría de negocios locales", accent: "brand" },
+  { title: "Nivel 2", text: "Automatización con n8n — cuando el Nivel 1 ya no da abasto", accent: "violet" },
+  { title: "Nivel 3", text: "Base de datos — cuando el volumen lo exige", accent: "magenta" },
+  { title: "Nivel 4", text: "Dashboard + reportes — cuando necesitas ver el negocio en tiempo real", accent: "amber" },
+  { title: "Nivel 5", text: "IA + integraciones avanzadas — solo cuando los 4 anteriores ya están", accent: "brand" },
 ]
 
 export function Niveles() {
@@ -17,8 +17,8 @@ export function Niveles() {
       <div className="mx-auto w-full max-w-[1120px]">
         <Reveal className="max-w-3xl">
           <p className="eyebrow">El Sistema de los 5 Niveles</p>
-          <h2 id="niveles-title" className="section-title">Te decimos en cuál nivel estás. Nunca te vendemos el más caro.</h2>
-          <p className="mt-4 text-lg text-[#d6d1e8]">Nadie tiene que llegar al Nivel 5. Implementamos solo lo que el diagnóstico dice que necesitas.</p>
+          <h2 id="niveles-title" className="section-title">Tu nivel correcto.</h2>
+          <p className="mt-4 text-lg text-[#d6d1e8]">Te decimos en cuál nivel estás. Nunca te vendemos el más caro. Nadie tiene que llegar al Nivel 5: implementamos solo lo que el diagnóstico dice que necesitas.</p>
         </Reveal>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {niveles.map((nivel, index) => (
